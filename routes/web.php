@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Mail\Markdown;
+use App\Http\Controllers\ProductController;
 
 
 /*
@@ -20,6 +21,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
+
+  
+Route::resource('products', ProductController::class);
 
 Route::get('/send-email', function () {
     $data = ["name"=> "shyam kumbhar"];
