@@ -4,26 +4,22 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Mail\Markdown;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\NormalHttpClient;
+use App\Http\Controllers\GuzzleHttpClient;
 
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Logs 
 Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
 
-  
+// Basic CRUD
 Route::resource('products', ProductController::class);
+
+
+// Email Send using cron job 
 
 Route::get('/send-email', function () {
     $data = ["name"=> "shyam kumbhar"];
@@ -71,5 +67,18 @@ Route::get('/preview-email-template', function () {
     echo "email send Succesfully";
     
 
-
 });
+
+// Third Party Api Integration using Normal http client (CRUD)
+Route::get('/post',[NormalHttpClient::class,"all_data"]);
+Route::get('/post/{id}',[NormalHttpClient::class,"single_data"]);
+Route::get('/addPost',[NormalHttpClient::class,"addPost"]);
+Route::get('/updatePost/{id}',[NormalHttpClient::class,"updatePost"]);
+Route::get('/deletePost/{id}',[NormalHttpClient::class,"deletePost"]);
+Route::get('/getInfo',[NormalHttpClient::class,"getInfo"]);
+
+
+// third party api integration using GuzzleHttpclient
+Route::get('/Guzzle_Http_Client ',[GuzzleHttpClient::class,"getRequest"]);
+Route::post('/Guzzle_Http_Client ',[GuzzleHttpClient::class,"getRequest"]);
+
