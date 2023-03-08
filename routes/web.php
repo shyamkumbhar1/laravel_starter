@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Mail\Markdown;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\NormalHttpClient;
-use App\Http\Controllers\GuzzleHttpClient;
+use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController};
+
+use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 
 
 Route::get('/', function () {
@@ -81,4 +81,9 @@ Route::get('/getInfo',[NormalHttpClient::class,"getInfo"]);
 // third party api integration using GuzzleHttpclient
 Route::get('/getRequest ',[GuzzleHttpClient::class,"getRequest"]);
 Route::get('/postRequest ',[GuzzleHttpClient::class,"postRequest"]);
+
+// Laravel 8 - Accessors and Mutators 
+Route::get('add-product',[MutatorController::class,'setProduct']);
+Route::get('list-product',[MutatorController::class,'getProducts']);
+
 
