@@ -1,5 +1,5 @@
 <?php
-
+// https://dev.to/dalelantowork/laravel-8-accessors-and-mutators-4d8m
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;

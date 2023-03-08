@@ -1,4 +1,5 @@
 <?php
+//https://codelapan.com/post/laravel-8-rest-api-authentication-with-sanctum
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
