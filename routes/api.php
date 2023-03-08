@@ -18,7 +18,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//API route for register new user
+/* Laravel Sanctum start  */
+//ref : https://codelapan.com/post/laravel-8-rest-api-authentication-with-sanctum
+//API route for register new user 
 Route::post('/register', [App\Http\Controllers\API\AuthController::class, 'register']);
 //API route for login user
 Route::post('/login', [App\Http\Controllers\API\AuthController::class, 'login']);
@@ -31,4 +33,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     // API route for logout user
     Route::post('/logout', [App\Http\Controllers\API\AuthController::class, 'logout']);
+
+/* Laravel Sanctum end  */
+
 });
