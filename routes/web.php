@@ -79,6 +79,6 @@ Route::get('/getInfo',[NormalHttpClient::class,"getInfo"]);
 
 
 // third party api integration using GuzzleHttpclient
-Route::get('/Guzzle_Http_Client ',[GuzzleHttpClient::class,"getRequest"]);
-Route::post('/Guzzle_Http_Client ',[GuzzleHttpClient::class,"getRequest"]);
+Route::get('/getRequest ',[GuzzleHttpClient::class,"getRequest"]);
+Route::get('/postRequest ',[GuzzleHttpClient::class,"postRequest"]);
 

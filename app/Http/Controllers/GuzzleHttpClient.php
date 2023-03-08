@@ -17,14 +17,18 @@ class GuzzleHttpClient extends Controller
     }
     public function postRequest()
 {
-        // $client = new Client();
-        // $response = $client->request('POST', 'http://localhost:8001/api/store', [
-        //     'form_params' => ]
-        //         'name' => 'Parth',
-        //         [
+        $client = new  \GuzzleHttp\Client();
+        $request = $client->post('https://reqres.in/api/users', [  // first way to define methode 
+            "name"=>"morpheus",
+            "job"=>"leader"
+        ]);
+        
+        // $request = $client->request('POST', 'https://reqres.in/api/users', [  // second way to define methode 
+        //     "name"=>"morpheus",
+        //     "job"=>"leader"
         // ]);
-        // $response = $response->getBody()->getContents();
-        // echo '<pre>';
-        // print_r($response);
+        $response = $request->getBody()->getContents();
+        echo '<pre>';
+        print_r($response);
 }
 }
