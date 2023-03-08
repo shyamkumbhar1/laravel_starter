@@ -87,3 +87,4 @@ Route::get('add-product',[MutatorController::class,'setProduct']);
 Route::get('list-product',[MutatorController::class,'getProducts']);
 
 
+// Custom Registor , login and Logout 
