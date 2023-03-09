@@ -51,14 +51,14 @@ Route::get('add-product',[MutatorController::class,'setProduct']);
 Route::get('list-product',[MutatorController::class,'getProducts']);
 
 
-// Custom Registor , login and Logout  using session 
+// Custom Auth Registor , login and Logout  using session using Core Php
 Route::view('login1','session.login');
 Route::view('home1','session.home');
 
 Route::post('/login1',[SessionController::class,'login']);
 
 
-// Custom Auth ( login Register and logout )
+// Custom Auth 1 ( login Register and logout )
 
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
