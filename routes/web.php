@@ -1,8 +1,15 @@
 <?php
 
+use App\Http\Controllers\CoreConcept;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController};
+use App\Http\Controllers\SessionController;
 use App\Http\Controllers\Mail\mailController;
+use App\Http\Controllers\CoreConceptController;
+use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController};
+
+
+use App\Http\Controllers\Auth\AuthController;
+
 
 
 
@@ -44,4 +51,23 @@ Route::get('add-product',[MutatorController::class,'setProduct']);
 Route::get('list-product',[MutatorController::class,'getProducts']);
 
 
-// Custom Registor , login and Logout 
+// Custom Registor , login and Logout  using session 
+Route::view('login1','session.login');
+Route::view('home1','session.home');
+
+Route::post('/login1',[SessionController::class,'login']);
+
+
+// Custom Auth ( login Register and logout )
+
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
+Route::get('registration', [AuthController::class, 'registration'])->name('register');
+Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
+Route::get('dashboard', [AuthController::class, 'dashboard']); 
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+
+// Core Concept 
+
+Route::get('/array',[CoreConceptController::class,'array']);
