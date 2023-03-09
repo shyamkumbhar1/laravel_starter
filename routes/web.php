@@ -71,3 +71,15 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 // Core Concept 
 
 Route::get('/array',[CoreConceptController::class,'array']);
+
+// middelware 
+
+Route::view('noaccess','middleware.noaccess')->name('noaccess1');
+Route::view('user','middleware.user')->middleware('ProtectedAge');
+
+
+// Route::group(['middleware'=>['ProtectedAge']],function(){
+//     // Route::view('user','middleware.user');
+
+// });
+
