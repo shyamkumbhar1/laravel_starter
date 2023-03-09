@@ -1,9 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Mail\Markdown;
-use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController};
 use App\Http\Controllers\Mail\mailController;
 
