@@ -14,6 +14,7 @@ use App\Http\Controllers\Auth\AuthController;
 
 
 Route::get('/', function () {
+    
     return view('welcome');
 });
 
@@ -83,3 +84,12 @@ Route::view('user','middleware.user')->middleware('ProtectedAge');
 
 // });
 
+
+// helpers 
+
+Route::get('/helper',function(){
+    //  echo messaage();
+//  echo messaage("Hello Mad");  // function  base helper
+echo Custom::UpperCase("hete");  // class base helper
+return view ('home3');
+});
