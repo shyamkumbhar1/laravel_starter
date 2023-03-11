@@ -93,3 +93,10 @@ Route::get('/helper',function(){
 echo Custom::UpperCase("hete");  // class base helper
 return view ('home3');
 });
+
+
+// Define Constant Variable in Laravel
+Route::get('/set-config',function(){
+    dd(config('global.user_name'));
+
+});
