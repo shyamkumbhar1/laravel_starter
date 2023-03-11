@@ -181,6 +181,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -214,5 +215,6 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Custom' => App\Helpers\Custom::class,
     ])->toArray(),
-
+    
+    'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
 ];
