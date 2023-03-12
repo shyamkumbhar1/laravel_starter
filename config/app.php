@@ -198,6 +198,7 @@ return [
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Ixudra\Curl\CurlServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class
 
     ],
 
@@ -216,6 +217,7 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Custom' => App\Helpers\Custom::class,
         'Curl'          => Ixudra\Curl\Facades\Curl::class,
+        'Image' => Intervention\Image\Facades\Image::class
     ])->toArray(),
     
     'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
