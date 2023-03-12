@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\AuthController;
 
 use App\Http\Controllers\Mail\mailController;
 use App\Http\Controllers\CoreConceptController;
+use App\Http\Controllers\imageUploadController;
 use App\Http\Controllers\RazorpayPaymentController;
 use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController};
 
@@ -114,3 +115,8 @@ Route::post('razorpay-payment', [RazorpayPaymentController::class, 'store'])->na
 
 Route::get('/curl-basic-core',[CurlController::class,'core']);
 Route::get('/curl-laravel',[CurlController::class,'laravel']);
+
+
+// image Upload 
+Route::get('imageUpload',[imageUploadController::class,'index']);
+Route::post('upload-image',[imageUploadController::class,'upload']);
