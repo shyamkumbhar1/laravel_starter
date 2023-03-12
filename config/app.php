@@ -197,6 +197,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Ixudra\Curl\CurlServiceProvider::class,
 
     ],
 
@@ -214,6 +215,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Custom' => App\Helpers\Custom::class,
+        'Curl'          => Ixudra\Curl\Facades\Curl::class,
     ])->toArray(),
     
     'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,

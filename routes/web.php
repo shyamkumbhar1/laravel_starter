@@ -1,13 +1,15 @@
 <?php
 
+use Ixudra\Curl\Facades\Curl;
 use App\Http\Controllers\CoreConcept;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CurlController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\Auth\AuthController;
+
+
 use App\Http\Controllers\Mail\mailController;
 use App\Http\Controllers\CoreConceptController;
-
-
 use App\Http\Controllers\RazorpayPaymentController;
 use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController};
 
@@ -106,3 +108,9 @@ Route::get('/set-config',function(){
 // razorpay-payment
 Route::get('razorpay-payment', [RazorpayPaymentController::class, 'index']);
 Route::post('razorpay-payment', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');
+
+
+// CRUL 
+
+Route::get('/curl-basic-core',[CurlController::class,'core']);
+Route::get('/curl-laravel',[CurlController::class,'laravel']);
