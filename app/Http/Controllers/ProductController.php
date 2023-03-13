@@ -38,6 +38,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        // Fetch Client_ip
+        $clientIP = request()->ip();   
+        dd($clientIP);
+        
         $request->validate([
             'name' => 'required',
             'detail' => 'required',
