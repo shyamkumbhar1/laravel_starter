@@ -1,18 +1,10 @@
 <?php
 
 use Ixudra\Curl\Facades\Curl;
-use App\Http\Controllers\CoreConcept;
+use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CurlController;
-use App\Http\Controllers\SessionController;
 use App\Http\Controllers\Auth\AuthController;
-
-
 use App\Http\Controllers\Mail\mailController;
-use App\Http\Controllers\CoreConceptController;
-use App\Http\Controllers\imageUploadController;
-use App\Http\Controllers\RazorpayPaymentController;
-use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController};
 
 
 
@@ -120,3 +112,10 @@ Route::get('/curl-laravel',[CurlController::class,'laravel']);
 // image Upload 
 Route::get('imageUpload',[imageUploadController::class,'index']);
 Route::post('upload-image',[imageUploadController::class,'upload']);
+
+
+// Named Route In Laravel 
+
+Route::get('route',[RouteController::class,'route']);
+Route::get('home',[RouteController::class,'home'])->name('home');
+Route::get('about/{category}',[RouteController::class,'about'])->name('about');
