@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\EncryptioController;
 use App\Http\Controllers\Mail\mailController;
+use App\Http\Controllers\relationShipController;
 use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
 
 
@@ -150,3 +151,15 @@ Route::get('decrypt',[EncryptioController::class,'decrypt']);
 
 // Custom Services in laravel 
 Route::get('services',[PostController::class,'index']);
+
+// RelationShip 
+
+Route::get('/hasOne',[relationShipController::class,"hasOne"]);
+Route::get('/hasMany',[relationShipController::class,"hasMany"]);
+// Route::get('/ManyToMany',[relationShipController::class,"ManyToMany"]);
+Route::get('/HasOneThrough',[relationShipController::class,"HasOneThrough"]);
+
+// Accesor and Mutator 
+Route::get('/Mutator',[relationShipController::class,"Mutator"]);
+
+// Country State city DropDown In 
