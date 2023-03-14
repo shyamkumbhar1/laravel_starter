@@ -2,6 +2,7 @@
 
 use Ixudra\Curl\Facades\Curl;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\EncryptioController;
 use App\Http\Controllers\Mail\mailController;
@@ -146,3 +147,6 @@ Route::controller(OrderController::class)->group(function () {
 // Encryption And decription 
 Route::get('encrypt',[EncryptioController::class,'encrypt']);
 Route::get('decrypt',[EncryptioController::class,'decrypt']);
+
+// Custom Services in laravel 
+Route::get('services',[PostController::class,'index']);
