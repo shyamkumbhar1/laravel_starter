@@ -20,5 +20,6 @@ class RouteController extends Controller
             // return view ('about');
          
             return view ('About',["cat"=>$cat]);
+         
     }
 }
