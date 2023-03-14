@@ -198,7 +198,8 @@ return [
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Ixudra\Curl\CurlServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class
+        Intervention\Image\ImageServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
 
     ],
 
@@ -217,7 +218,9 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Custom' => App\Helpers\Custom::class,
         'Curl'          => Ixudra\Curl\Facades\Curl::class,
-        'Image' => Intervention\Image\Facades\Image::class
+        'Image' => Intervention\Image\Facades\Image::class,
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
     ])->toArray(),
     
     'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
