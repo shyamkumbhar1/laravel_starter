@@ -3,9 +3,11 @@
 use Ixudra\Curl\Facades\Curl;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ClosureController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\EncryptioController;
 use App\Http\Controllers\Mail\mailController;
+use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\relationShipController;
 use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
 
@@ -163,3 +165,13 @@ Route::get('/HasOneThrough',[relationShipController::class,"HasOneThrough"]);
 Route::get('/Mutator',[relationShipController::class,"Mutator"]);
 
 // Country State city DropDown In 
+
+
+// Collection
+
+Route::get('collection',[CollectionController::class,'index']);
+Route::get('FetchUser',[CollectionController::class,'FetchUser']);
+
+
+// Closure 
+Route::get('closure',[ClosureController::class,'index']);
