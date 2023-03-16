@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\API\RegisterController;
+use App\Http\Controllers\API\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,17 +41,29 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 });
 
-// Jwt Token Api start
+// // Jwt Token Api start
 
-Route::group([
-    'middleware' => 'api',
-    'prefix' => 'auth'
-], function ($router) {
-    Route::post('/login', [AuthController::class, 'login']);
-    Route::post('/register', [AuthController::class, 'register']);
-    Route::post('/logout', [AuthController::class, 'logout']);
-    Route::post('/refresh', [AuthController::class, 'refresh']);
-    Route::get('/user-profile', [AuthController::class, 'userProfile']);    
+// Route::group([
+//     'middleware' => 'api',
+//     'prefix' => 'auth'
+// ], function ($router) {
+//     Route::post('/login', [AuthController::class, 'login']);
+//     Route::post('/register', [AuthController::class, 'register']);
+//     Route::post('/logout', [AuthController::class, 'logout']);
+//     Route::post('/refresh', [AuthController::class, 'refresh']);
+//     Route::get('/user-profile', [AuthController::class, 'userProfile']);    
+// });
+
+// // Jwt Token Api End
+
+
+// Passport Api Start  
+
+Route::post('register', [RegisterController::class, 'register']);
+Route::post('login', [RegisterController::class, 'login']);
+     
+Route::middleware('auth:api')->group( function () {
+    Route::resource('products', ProductController::class);
 });
 
-// Jwt Token Api End
+// Passport Api End
