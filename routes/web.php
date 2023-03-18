@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\EncryptioController;
 use App\Http\Controllers\Mail\mailController;
-use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
+use App\Http\Controllers\{ProductController,jsonController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
 
 
 
@@ -146,3 +146,7 @@ Route::controller(OrderController::class)->group(function () {
 // Encryption And decription 
 Route::get('encrypt',[EncryptioController::class,'encrypt']);
 Route::get('decrypt',[EncryptioController::class,'decrypt']);
+
+
+// Handel Json Data in PHP
+Route::get('json-data',[jsonController::class,'getData']);
