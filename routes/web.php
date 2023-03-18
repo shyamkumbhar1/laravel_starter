@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EncryptioController;
 use App\Http\Controllers\Mail\mailController;
 use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
+use App\Http\Controllers\Product1Controller;
 
 
 
@@ -149,3 +150,8 @@ Route::get('decrypt',[EncryptioController::class,'decrypt']);
 
 // Fetch flight data 
 Route::get('/get-flightData', [AuthController::class, 'getFlightData']);    
+
+
+// React Laravel Crud
+
+Route::resource('products1',Product1Controller::class);
