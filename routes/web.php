@@ -2,7 +2,7 @@
 
 use Ixudra\Curl\Facades\Curl;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EncryptioController;
 use App\Http\Controllers\Mail\mailController;
 use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
@@ -146,3 +146,6 @@ Route::controller(OrderController::class)->group(function () {
 // Encryption And decription 
 Route::get('encrypt',[EncryptioController::class,'encrypt']);
 Route::get('decrypt',[EncryptioController::class,'decrypt']);
+
+// Fetch flight data 
+Route::get('/get-flightData', [AuthController::class, 'getFlightData']);    

@@ -97,4 +97,15 @@ class AuthController extends Controller
             'user' => auth()->user()
         ]);
     }
+
+    public function getFlightData()
+    {
+        dd('test');
+        $client = new \GuzzleHttp\Client();
+        $request = $client->get('https://jsonplaceholder.typicode.com/posts');
+        $response = $request->getBody()->getContents();
+        echo '<pre>';
+        print_r($response);
+        exit;
+    }
 }
