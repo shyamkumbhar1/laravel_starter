@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Product1Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +56,8 @@ Route::group([
 });
 
 // Jwt Token Api End
+
+
+// React Laravel Crud
+
+Route::resource('products',Product1Controller::class);

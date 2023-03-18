@@ -152,6 +152,3 @@ Route::get('decrypt',[EncryptioController::class,'decrypt']);
 Route::get('/get-flightData', [AuthController::class, 'getFlightData']);    
 
 
-// React Laravel Crud
-
-Route::resource('products1',Product1Controller::class);
