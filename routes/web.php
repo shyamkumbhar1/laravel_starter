@@ -148,5 +148,4 @@ Route::get('encrypt',[EncryptioController::class,'encrypt']);
 Route::get('decrypt',[EncryptioController::class,'decrypt']);
 
 
-// Handel Json Data in PHP
-Route::get('json-data',[jsonController::class,'getData']);
+

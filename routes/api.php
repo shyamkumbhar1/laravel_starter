@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\{AuthController,jsonController};
 
 /*
 |--------------------------------------------------------------------------
@@ -53,3 +53,10 @@ Route::group([
 });
 
 // Jwt Token Api End
+
+
+// Handel Json Data in PHP
+Route::get('AllFlights',[jsonController::class,'AllFlights']);
+Route::get('SearchFlights',[jsonController::class,'SearchFlight']);
+Route::view('testing','testing');
+
