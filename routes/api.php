@@ -49,14 +49,18 @@ Route::group([
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
-    Route::get('/user-profile', [AuthController::class, 'userProfile']);    
+    Route::get('/user-profile', [AuthController::class, 'userProfile']);  
+    Route::view('testing','testing');
+    // Flight Serach
+Route::get('AllFlights',[jsonController::class,'AllFlights']);
+Route::get('SearchFlights',[jsonController::class,'SearchFlight']);
+
 });
 
 // Jwt Token Api End
 
 
-// Handel Json Data in PHP
+// Flight Serach
 Route::get('AllFlights',[jsonController::class,'AllFlights']);
 Route::get('SearchFlights',[jsonController::class,'SearchFlight']);
-Route::view('testing','testing');
 
