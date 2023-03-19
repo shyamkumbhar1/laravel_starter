@@ -1,4 +1,3 @@
-{{print_r($flights[0])}}
 
 <!DOCTYPE html>
 <html lang="en">

@@ -4,40 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{AuthController,jsonController};
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-/* Laravel Sanctum start  */
-//ref : https://codelapan.com/post/laravel-8-rest-api-authentication-with-sanctum
-//API route for register new user 
-Route::post('/register', [App\Http\Controllers\API\AuthController::class, 'register']);
-//API route for login user
-Route::post('/login', [App\Http\Controllers\API\AuthController::class, 'login']);
-
-//Protecting Routes
-Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::get('/profile', function(Request $request) {
-        return auth()->user();
-    });
-
-    // API route for logout user
-    Route::post('/logout', [App\Http\Controllers\API\AuthController::class, 'logout']);
-
-/* Laravel Sanctum end  */
-
-});
 
 // Jwt Token Api start
 
@@ -52,15 +19,12 @@ Route::group([
     Route::get('/user-profile', [AuthController::class, 'userProfile']);  
     Route::view('testing','testing');
     // Flight Serach
-Route::get('AllFlights',[jsonController::class,'AllFlights']);
-Route::get('SearchFlights',[jsonController::class,'SearchFlight']);
+Route::get('all-flights',[jsonController::class,'AllFlights']);
+Route::get('search-flights',[jsonController::class,'SearchFlight']);
 
 });
 
 // Jwt Token Api End
 
 
-// Flight Serach
-Route::get('AllFlights',[jsonController::class,'AllFlights']);
-Route::get('SearchFlights',[jsonController::class,'SearchFlight']);
 

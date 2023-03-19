@@ -1,4 +1,3 @@
-{{print_r($flights[0])}}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +10,7 @@
 </head>
 
 <body>
-    <h1> All Fligths Data</h1>
+    <h1> All Flights Data</h1>
     <table class="table table-striped" id="policy_reports" border=1>
         <thead>
             <tr>

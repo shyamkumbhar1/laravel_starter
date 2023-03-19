@@ -46,7 +46,7 @@ class jsonController extends Controller
             // Find Flights
             $search_items = $request->all();
             $search_flights = jsonController::search($flights, $search_items);
-            print_r($search_flights);
+            // print_r($search_flights);
             
             return view('SearchFlight')->with('flights', $search_flights);
         }

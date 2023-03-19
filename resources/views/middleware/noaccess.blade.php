@@ -1,1 +1,0 @@
-<h1>You Can Not Access This Website.... Because User Age is under 18 Year..</h1>
