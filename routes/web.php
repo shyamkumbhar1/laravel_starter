@@ -7,6 +7,7 @@ use App\Http\Controllers\EncryptioController;
 use App\Http\Controllers\Mail\mailController;
 use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
 use App\Http\Controllers\Product1Controller;
+use App\Http\Controllers\ImageUploadAwsController;
 
 
 
@@ -150,5 +151,11 @@ Route::get('decrypt',[EncryptioController::class,'decrypt']);
 
 // Fetch flight data 
 Route::get('/get-flightData', [AuthController::class, 'getFlightData']);    
+
+// image upload using AWS 
+
+Route::get('image-upload', [ ImageUploadAwsController::class, 'imageUpload' ])->name('image.upload');
+Route::post('image-upload', [ ImageUploadAwsController::class, 'imageUploadPost' ])->name('image.upload.post');
+Route::get('get-image', [ ImageUploadAwsController::class, 'getImage' ]);
 
 

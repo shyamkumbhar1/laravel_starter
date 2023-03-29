@@ -14,6 +14,7 @@
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.2",
+        "league/flysystem-aws-s3-v3": "^3.0",
         "rap2hpoutre/laravel-log-viewer": "^2.3",
         "razorpay/razorpay": "^2.8",
         "tymon/jwt-auth": "^2.0"
