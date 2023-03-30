@@ -22,13 +22,13 @@
     <link href="{{asset('admin_assets/vendor/bootstrap-4.1/bootstrap.min.css')}}" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <!-- <link href="{{asset('admin_assets/vendor/animsition/animsition.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('admin_assets/vendor/animsition/animsition.min.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('admin_assets/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('admin_assets/vendor/wow/animate.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('admin_assets/vendor/css')}}-hamburgers/hamburgers.min.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('admin_assets/vendor/slick/slick.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('admin_assets/vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('admin_assets/vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all"> -->
+    <link href="{{asset('admin_assets/vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
     <link href="{{asset('admin_assets/css/theme.css')}}" rel="stylesheet" media="all">
@@ -262,7 +262,7 @@
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
+                                                <a href="logout">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>
@@ -299,7 +299,7 @@
     <script src="{{asset('admin_assets/vendor/bootstrap-4.1/popper.min.js')}}"></script>
     <script src="{{asset('admin_assets/vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
     <!-- Vendor JS       -->
-    <!-- <script src="{{asset('admin_assets/vendor/slick/slick.min.js')}}">
+    <script src="{{asset('admin_assets/vendor/slick/slick.min.js')}}">
     </script>
     <script src="{{asset('admin_assets/vendor/wow/wow.min.js')}}"></script>
     <script src="{{asset('admin_assets/vendor/animsition/animsition.min.js')}}"></script>
@@ -312,7 +312,7 @@
     <script src="{{asset('admin_assets/vendor/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
     <script src="{{asset('admin_assets/vendor/chartjs/Chart.bundle.min.js')}}"></script>
     <script src="{{asset('admin_assets/vendor/select2/select2.min.js')}}">
-    </script> -->
+    </script>
 
     <!-- Main JS-->
     <script src="{{asset('admin_assets/js/main.js')}}"></script>

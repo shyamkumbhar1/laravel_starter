@@ -3,6 +3,7 @@
 @section('container')
 <h1>Category</h1>
 
+<a class="btn btn-primary" href="manage_category" role="button">Add Category</a>
 <div class="row">
     <div class="table-responsive m-b-40">
                                     <table class="table table-borderless table-data3">

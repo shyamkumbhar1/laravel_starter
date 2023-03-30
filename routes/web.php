@@ -9,6 +9,8 @@ use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,Mu
 use App\Http\Controllers\Product1Controller;
 use App\Http\Controllers\ImageUploadAwsController;
 use App\Http\Controllers\{AdminController,CategoryController};
+use Illuminate\Http\Request;
+
 
 
 
@@ -168,6 +170,12 @@ Route::post('admin/auth',[AdminController::class,'auth'])->name('admin.auth');
 Route::group(['middleware'=>'admin_auth'],function(){
 Route::get('admin/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
 Route::get('admin/category',[CategoryController::class,'index']);
+Route::get('admin/manage_category',[CategoryController::class,'manage_category']);
+Route::get('admin/UpdatePassword',[AdminController::class,'UpdatePassword']);
+Route::get('admin/logout',[AdminController::class,'logout']);
+
+    
+
 
 
 });

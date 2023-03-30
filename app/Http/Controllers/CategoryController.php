@@ -22,9 +22,10 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function manage_category()
     {
-        //
+        return view ('admin.manage_category');
+
     }
 
     /**

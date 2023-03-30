@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,8 +44,10 @@
                 <div class="login-wrap">
                     <div class="login-content">
                         <div class="login-logo">
+                        {{config('constants.site_name')}} 
                             <a href="#">
-                                <img src="{{asset('admin_assets/images/icon/logo.png')}}" alt="CoolAdmin">
+                                {{-- <img src="{{asset('admin_assets/images/icon/logo.png')}}" alt="CoolAdmin"> --}}
+                                <h1>{{Config::get('contants.site_name')}} </h1>
                             </a>
                         </div>
                         <div class="login-form">
