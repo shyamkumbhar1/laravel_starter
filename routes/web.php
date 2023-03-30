@@ -8,12 +8,13 @@ use App\Http\Controllers\Mail\mailController;
 use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
 use App\Http\Controllers\Product1Controller;
 use App\Http\Controllers\ImageUploadAwsController;
+use App\Http\Controllers\{AdminController,CategoryController};
 
 
 
 
 Route::get('/', function () {
-    
+    // Session::flush();
     return view('welcome');
 });
 
@@ -125,19 +126,19 @@ Route::get('about/{category}',[RouteController::class,'about'])->name('about');
 
 // Prefix in laravel 
 
-Route::prefix('admin')->group(function () {
-    Route::get('/users', function () {
-        // Matches The "/admin/users" URL
-        return "admin user page";
-    });
-});
+// Route::prefix('admin')->group(function () {
+//     Route::get('/users', function () {
+//         // Matches The "/admin/users" URL
+//         return "admin user page";
+//     });
+// });
 
-Route::name('admin.')->group(function () {
-    Route::get('/users', function () {
-        // Route assigned name "admin.users1"...
+// Route::name('admin.')->group(function () {
+//     Route::get('/users', function () {
+//         // Route assigned name "admin.users1"...
      
-    })->name('users1');
-});
+//     })->name('users1');
+// });
 
 Route::controller(OrderController::class)->group(function () {
     Route::get('/orders/{id}', 'show');
@@ -159,3 +160,14 @@ Route::post('image-upload', [ ImageUploadAwsController::class, 'imageUploadPost'
 Route::get('get-image', [ ImageUploadAwsController::class, 'getImage' ]);
 
 
+// Ecom Application
+Route::get('admin',[AdminController::class,'index']);
+Route::post('admin/auth',[AdminController::class,'auth'])->name('admin.auth');
+
+// Protected Admin Roughts
+Route::group(['middleware'=>'admin_auth'],function(){
+Route::get('admin/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
+Route::get('admin/category',[CategoryController::class,'index']);
+
+
+});
