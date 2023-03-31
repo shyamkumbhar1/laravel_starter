@@ -8,6 +8,7 @@ use App\Http\Controllers\Mail\mailController;
 use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
 use App\Http\Controllers\Product1Controller;
 use App\Http\Controllers\ImageUploadAwsController;
+use App\Http\Controllers\CouponController;
 use App\Http\Controllers\{AdminController,CategoryController};
 use Illuminate\Http\Request;
 
@@ -172,15 +173,19 @@ Route::get('admin/dashboard',[AdminController::class,'dashboard'])->name('admin.
 Route::get('admin/UpdatePassword',[AdminController::class,'UpdatePassword']);
 Route::get('admin/logout',[AdminController::class,'logout']);
 
+// Category Section
 Route::get('admin/category',[CategoryController::class,'index']);
 Route::get('admin/category/manage_category',[CategoryController::class,'manage_category']);
 Route::get('admin/category/manage_category/{id}',[CategoryController::class,'manage_category']);
-
 Route::post('admin/category/manage_category_process',[CategoryController::class,'manage_category_process'])->name('category.insert');
 Route::get('admin/category/delete/{id}',[CategoryController::class,'delete']);
 
     
-
-
+// Coupons Section 
+Route::get('admin/coupon',[CouponController::class,'index']);
+Route::get('admin/coupon/manage_coupon',[CouponController::class,'manage_coupon']);
+Route::get('admin/coupon/manage_coupon/{id}',[CouponController::class,'manage_coupon']);
+Route::post('admin/coupon/manage_coupon_process',[CouponController::class,'manage_coupon_process'])->name('coupon.insert');
+Route::get('admin/coupon/delete/{id}',[CouponController::class,'delete']);
 
 });
