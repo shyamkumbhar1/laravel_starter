@@ -1,5 +1,6 @@
 @extends('admin/layout');
 @section('page_title','Coupon')
+@section('coupon_select','active')
 
 @section('container')
 <h1>Coupon</h1>

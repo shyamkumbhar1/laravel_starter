@@ -43,12 +43,12 @@
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="category">
-                                <i class="fas fa-tachometer-alt"></i>Category</a>
+                                <i class="fa-solid fa-list"></i>Category</a>
 
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="coupon">
-                                <i class="fas fa-tachometer-alt"></i>Coupon</a>
+                                <i class="fa-regular fa-tag"></i>Coupon</a>
 
                         </li>
 
@@ -68,18 +68,19 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
-                            <a class="js-arrow" href="dashboard">
+                        <li class=" @yield('dashboard_select')">
+                            <a class="js-arrow" href=" {{url('admin/ashboard')}} ">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
 
                         </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="category">
-                                <i class="fas fa-tachometer-alt"></i>Category</a>
+                      <li class="@yield('category_select')">
+                            <a class="js-arrow" href="{{url('admin/category')}} ">
+                                <i class="fa-solid fa-list"></i>Category</a>
+
                         </li>
-                         <li class="has-sub">
-                            <a class="js-arrow" href="coupon">
-                                <i class="fas fa-tachometer-alt"></i>Coupon</a>
+                     <li class=" @yield('coupon_select')">
+                            <a class="js-arrow" href="{{url('admin/coupon')}}">
+                                <i class="fa-regular fa-tag"></i>Coupon</a>
 
                         </li>
 
