@@ -60,6 +60,7 @@ class CategoryController extends Controller
         }
         $category->category_name = $request->post('category_name');
         $category->category_slug = $request->post('category_slug');
+        $category->status = 1;
         $category->save();
         $request->session()->flash('message', $msg);
         return redirect('admin/category');
@@ -71,6 +72,16 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->delete();
         $request->session()->flash('message', 'Category Delete Succesfully');
+        return redirect('admin/category');
+    }
+    public function status(Request $request, $status,$id)
+    {
+        
+        // dd($request->all(),$id,$status);
+        $category = Category::find($id);
+        $category->status = $status;
+        $category->save();
+        $request->session()->flash('message', 'Category Status Update Succesfully');
         return redirect('admin/category');
     }
 

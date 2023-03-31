@@ -28,8 +28,18 @@
                                                 <td> {{$list->category_name}} </td>
                                                 <td> {{$list->category_slug}} </td>
                                                 <td>
-                                                <a class="btn btn-danger" href="{{url('admin/category/delete/')}}/{{$list->id}}"  role="button">Delete</a>
+                                                @if ($list->status == 1)
+                                                <a class="btn btn-primary" href="{{url('admin/category/status/0')}}/{{$list->id}}"  role="button">Active</a>
+
+                                                @elseif ($list->status == 0)
+                                                <a class="btn btn-warning" href="{{url('admin/category/status/1')}}/{{$list->id}}"  role="button">Deactive</a>
+                                                    
+                                                @endif
+
+
                                                 <a class="btn btn-primary" href="{{url('admin/category/manage_category/')}}/{{$list->id}}"  role="button">Edit</a>
+                                                <a class="btn btn-danger" href="{{url('admin/category/delete/')}}/{{$list->id}}"  role="button">Delete</a>
+
                                                 </td>
                                                
                                             </tr>

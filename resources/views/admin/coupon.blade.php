@@ -30,6 +30,12 @@
                                                 <td> {{$list->code}} </td>
                                                 <td> {{$list->value}} </td>
                                                 <td>
+                                                @if ($list->status == 1)
+                                                <a class="btn btn-primary" href="{{url('admin/coupon/status/0')}}/{{$list->id}}"  role="button">Active</a>
+                                                @elseif($list->status == 0)
+                                                <a class="btn btn-warning" href="{{url('admin/coupon/status/1')}}/{{$list->id}}"  role="button">Deactive</a>
+                                                    
+                                                @endif
                                                 <a class="btn btn-danger" href="{{url('admin/coupon/delete/')}}/{{$list->id}}"  role="button">Delete</a>
                                                 <a class="btn btn-primary" href="{{url('admin/coupon/manage_coupon/')}}/{{$list->id}}"  role="button">Edit</a>
                                                 </td>
