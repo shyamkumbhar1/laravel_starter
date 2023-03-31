@@ -14,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view ('admin.category');
+        $result['data'] = Category::all();
+        return view('admin.category', $result);
     }
 
     /**
@@ -22,10 +23,55 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function manage_category()
+    public function manage_category(Request $request, $id = ' ')
     {
-        return view ('admin.manage_category');
+        if ($id > 0) {
+            // echo "edit Mode";
+            $arr = Category::where(['id' => $id])->get();
+            $result['category_name'] = $arr[0]->category_name;
+            $result['category_slug'] = $arr[0]->category_slug;
+            $result['id'] = $arr[0]->id;
+        } else {
+            // echo "ADD Mode";
+            $result['category_name'] = '';
+            $result['category_slug'] = '';
+            $result['id'] = '';
+        }
+        // echo "<pre>";
+        // print_r($result);
+        // die();
 
+        return view('admin.manage_category', $result);
+    }
+    public function manage_category_process(Request $request)
+    {
+        // return $request->post();
+        $request->validate([
+            'category_name' => 'required',
+            'category_slug' => 'required | unique:categories,category_slug,'.$request->post('id'),
+        ]);
+
+        if ($request->post('category_name') > 0) {
+            $category = Category::find($request->post('id'));
+            $msg = "Category Update Succesfully";
+        } else {
+            $category = new Category();
+            $msg = "Category Insert Succesfully";
+        }
+        $category->category_name = $request->post('category_name');
+        $category->category_slug = $request->post('category_slug');
+        $category->save();
+        $request->session()->flash('message', $msg);
+        return redirect('admin/category');
+    }
+    public function delete(Request $request, $id)
+    {
+        // return $request->get('id');
+        // dd($request->all(),$id);
+        $category = Category::find($id);
+        $category->delete();
+        $request->session()->flash('message', 'Category Delete Succesfully');
+        return redirect('admin/category');
     }
 
     /**
@@ -79,6 +125,7 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
+
     public function destroy(Category $category)
     {
         //

@@ -169,10 +169,15 @@ Route::post('admin/auth',[AdminController::class,'auth'])->name('admin.auth');
 // Protected Admin Roughts
 Route::group(['middleware'=>'admin_auth'],function(){
 Route::get('admin/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
-Route::get('admin/category',[CategoryController::class,'index']);
-Route::get('admin/manage_category',[CategoryController::class,'manage_category']);
 Route::get('admin/UpdatePassword',[AdminController::class,'UpdatePassword']);
 Route::get('admin/logout',[AdminController::class,'logout']);
+
+Route::get('admin/category',[CategoryController::class,'index']);
+Route::get('admin/category/manage_category',[CategoryController::class,'manage_category']);
+Route::get('admin/category/manage_category/{id}',[CategoryController::class,'manage_category']);
+
+Route::post('admin/category/manage_category_process',[CategoryController::class,'manage_category_process'])->name('category.insert');
+Route::get('admin/category/delete/{id}',[CategoryController::class,'delete']);
 
     
 
