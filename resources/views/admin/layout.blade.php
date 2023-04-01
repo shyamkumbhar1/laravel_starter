@@ -108,7 +108,7 @@
                         </li>
                      <li class=" @yield('product_select')">
                             <a class="js-arrow" href="{{url('admin/product')}}">
-                                <i class="fas fa-product-hunt"></i>Product</a>
+                                <i class="fa fa-product-hunt"></i>Product</a>
 
                         </li>
 
