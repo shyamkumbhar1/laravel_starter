@@ -51,6 +51,11 @@
                                 <i class="fa-regular fa-tag"></i>Coupon</a>
 
                         </li>
+                           <li class=" @yield('size_select')">
+                            <a class="js-arrow" href="{{url('admin/size')}}">
+                                <i class="fa-regular fa-tag"></i>Size</a>
+
+                        </li>
 
                     </ul>
                 </div>
@@ -81,6 +86,11 @@
                      <li class=" @yield('coupon_select')">
                             <a class="js-arrow" href="{{url('admin/coupon')}}">
                                 <i class="fa-regular fa-tag"></i>Coupon</a>
+
+                        </li>
+                     <li class=" @yield('size_select')">
+                            <a class="js-arrow" href="{{url('admin/size')}}">
+                                <i class="fa-regular fa-tag"></i>Size</a>
 
                         </li>
 

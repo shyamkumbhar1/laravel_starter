@@ -1,16 +1,17 @@
 <?php
 
+use Illuminate\Http\Request;
 use Ixudra\Curl\Facades\Curl;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SizeController;
+use App\Http\Controllers\CouponController;
+use App\Http\Controllers\Product1Controller;
 use App\Http\Controllers\EncryptioController;
 use App\Http\Controllers\Mail\mailController;
-use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
-use App\Http\Controllers\Product1Controller;
 use App\Http\Controllers\ImageUploadAwsController;
-use App\Http\Controllers\CouponController;
 use App\Http\Controllers\{AdminController,CategoryController};
-use Illuminate\Http\Request;
+use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
 
 
 
@@ -189,5 +190,13 @@ Route::get('admin/coupon/manage_coupon/{id}',[CouponController::class,'manage_co
 Route::post('admin/coupon/manage_coupon_process',[CouponController::class,'manage_coupon_process'])->name('coupon.insert');
 Route::get('admin/coupon/delete/{id}',[CouponController::class,'delete']);
 Route::get('admin/coupon/status/{status}/{id}',[CouponController::class,'status']);
+
+// Size Section 
+Route::get('admin/size',[SizeController::class,'index']);
+Route::get('admin/size/manage_size',[SizeController::class,'manage_size']);
+Route::get('admin/size/manage_size/{id}',[SizeController::class,'manage_size']);
+Route::post('admin/size/manage_size_process',[SizeController::class,'manage_size_process'])->name('size.insert');
+Route::get('admin/size/delete/{id}',[SizeController::class,'delete']);
+Route::get('admin/size/status/{status}/{id}',[SizeController::class,'status']);
 
 });
