@@ -86,22 +86,23 @@
                         </li>
                       <li class="@yield('category_select')">
                             <a class="js-arrow" href="{{url('admin/category')}} ">
-                                <i class="fa-solid fa-list"></i>Category</a>
+                                <i class="fas fa-solid fa-list"></i>Category12</a>
 
                         </li>
                      <li class=" @yield('coupon_select')">
                             <a class="js-arrow" href="{{url('admin/coupon')}}">
-                                <i class="fa-regular fa-tag"></i>Coupon</a>
+                                <i class="fas fa-regular fa-tag"></i>Coupon</a>
 
                         </li>
                      <li class=" @yield('size_select')">
                             <a class="js-arrow" href="{{url('admin/size')}}">
-                                <i class="fa-regular fa-tag"></i>Size</a>
+                                <i class="fas fa-minimize"></i>Size</a>
+                                
 
                         </li>
                      <li class=" @yield('color_select')">
                             <a class="js-arrow" href="{{url('admin/color')}}">
-                                <i class="fa-regular fa-tag"></i>Color</a>
+                                <i class="fas fa-paint-brush"></i>Color</a>
 
                         </li>
 
