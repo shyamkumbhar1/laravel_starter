@@ -208,4 +208,12 @@ Route::post('admin/color/manage_color_process',[ColorController::class,'manage_c
 Route::get('admin/color/delete/{id}',[ColorController::class,'delete']);
 Route::get('admin/color/status/{status}/{id}',[ColorController::class,'status']);
 
+// Product Section 
+Route::get('admin/product',[ProductController::class,'index']);
+Route::get('admin/product/manage_product',[ProductController::class,'manage_product']);
+Route::get('admin/product/manage_product/{id}',[ProductController::class,'manage_product']);
+Route::post('admin/product/manage_product_process',[ProductController::class,'manage_product_process'])->name('product.insert');
+Route::get('admin/product/delete/{id}',[ProductController::class,'delete']);
+Route::get('admin/product/status/{status}/{id}',[ProductController::class,'status']);
+
 });

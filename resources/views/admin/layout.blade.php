@@ -53,7 +53,7 @@
                         </li>
                            <li class=" @yield('size_select')">
                             <a class="js-arrow" href="{{url('admin/size')}}">
-                                <i class="fa-regular fa-tag"></i>Size</a>
+                                <i class="fas fa-window-maximize"></i>Size</a>
 
                         </li>
                         </li>
@@ -96,13 +96,19 @@
                         </li>
                      <li class=" @yield('size_select')">
                             <a class="js-arrow" href="{{url('admin/size')}}">
-                                <i class="fas fa-minimize"></i>Size</a>
+                                <i class="fas fa-window-minimize"></i>Size</a>
+                                {{-- <i class="fas fa-window-maximize"></i>Size</a> --}}
                                 
 
                         </li>
                      <li class=" @yield('color_select')">
                             <a class="js-arrow" href="{{url('admin/color')}}">
                                 <i class="fas fa-paint-brush"></i>Color</a>
+
+                        </li>
+                     <li class=" @yield('product_select')">
+                            <a class="js-arrow" href="{{url('admin/product')}}">
+                                <i class="fas fa-product-hunt"></i>Product</a>
 
                         </li>
 
