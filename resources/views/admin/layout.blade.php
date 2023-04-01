@@ -80,7 +80,7 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class=" @yield('dashboard_select')">
-                            <a class="js-arrow" href=" {{url('admin/ashboard')}} ">
+                            <a class="js-arrow" href=" {{url('admin/dashboard')}} ">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
 
                         </li>
@@ -275,7 +275,7 @@
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="logout">
+                                                <a href="uri('admin/logout')">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>

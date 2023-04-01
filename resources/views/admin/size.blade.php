@@ -3,11 +3,19 @@
 @section('size_select','active')
 
 @section('container')
+ @if (session()->has('message'))
+        <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+            <h4>{{ session('message') }}</h4>
+
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+    @endif
 <h1>Size</h1>
 
 
 <a class="btn btn-primary" href="size/manage_size" role="button">Add Size</a>
-<h1>{{session('message')}}</h1>
 
 <div class="row">
     <div class="table-responsive m-b-40">
