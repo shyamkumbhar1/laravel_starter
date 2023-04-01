@@ -38,8 +38,8 @@ class SizeController extends Controller
 
         // return $request->post();
         $request->validate([
-            'size' => 'required',
-            // 'code' => 'required | unique:sizes,code,'.$request->post('id'),
+            // 'size' => 'required',
+            'size' => 'required | unique:sizes,size,'.$request->post('id'),
             // 'value' => 'required',
         ]);
 

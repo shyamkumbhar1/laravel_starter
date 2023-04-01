@@ -56,6 +56,12 @@
                                 <i class="fa-regular fa-tag"></i>Size</a>
 
                         </li>
+                        </li>
+                           <li class=" @yield('color_select')">
+                            <a class="js-arrow" href="{{url('admin/color')}}">
+                                <i class="fa-regular fa-tag"></i>Color</a>
+
+                        </li>
 
                     </ul>
                 </div>
@@ -91,6 +97,11 @@
                      <li class=" @yield('size_select')">
                             <a class="js-arrow" href="{{url('admin/size')}}">
                                 <i class="fa-regular fa-tag"></i>Size</a>
+
+                        </li>
+                     <li class=" @yield('color_select')">
+                            <a class="js-arrow" href="{{url('admin/color')}}">
+                                <i class="fa-regular fa-tag"></i>Color</a>
 
                         </li>
 

@@ -5,6 +5,7 @@ use Ixudra\Curl\Facades\Curl;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SizeController;
+use App\Http\Controllers\ColorController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\Product1Controller;
 use App\Http\Controllers\EncryptioController;
@@ -198,5 +199,13 @@ Route::get('admin/size/manage_size/{id}',[SizeController::class,'manage_size']);
 Route::post('admin/size/manage_size_process',[SizeController::class,'manage_size_process'])->name('size.insert');
 Route::get('admin/size/delete/{id}',[SizeController::class,'delete']);
 Route::get('admin/size/status/{status}/{id}',[SizeController::class,'status']);
+
+// Color Section 
+Route::get('admin/color',[ColorController::class,'index']);
+Route::get('admin/color/manage_color',[ColorController::class,'manage_color']);
+Route::get('admin/color/manage_color/{id}',[ColorController::class,'manage_color']);
+Route::post('admin/color/manage_color_process',[ColorController::class,'manage_color_process'])->name('color.insert');
+Route::get('admin/color/delete/{id}',[ColorController::class,'delete']);
+Route::get('admin/color/status/{status}/{id}',[ColorController::class,'status']);
 
 });
