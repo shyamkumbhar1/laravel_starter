@@ -139,7 +139,7 @@
             <div>
                 <h1>Product Attribute</h1>
                 <div style="background: white; margin-top: 40px; padding:30px;" id="product_attr_box">
-                    <div class="card">
+                    <div class="card" id ="product_attr1">
                         <div class="card-body">
                             <div class="form-group">
 
@@ -147,28 +147,28 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label for="cc-payment" class="control-label mb-1">SkU</label>
-                                            <input id="cc-pament" name="sku" type="text" value=""
+                                            <input id="cc-pament" name="sku[]" type="text" value=""
                                                 class="form-control" aria-required="true" aria-invalid="false" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label for="cc-payment" class="control-label mb-1">MRP</label>
-                                            <input id="cc-pament" name="mrp" type="text" class="form-control"
+                                            <input id="cc-pament" name="mrp[]" type="text" class="form-control"
                                                 aria-required="true" aria-invalid="false" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label for="cc-payment" class="control-label mb-1">Price</label>
-                                            <input id="cc-pament" name="price" type="text" class="form-control"
+                                            <input id="cc-pament" name="price[]" type="text" class="form-control"
                                                 aria-required="true" aria-invalid="false" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label for="cc-payment" class="control-label mb-1">Size</label>
-                                            <select name="size_id" id="size_id" type="text" value=""
+                                            <select name="size_id" id="size_id[]" type="text" value=""
                                                 class="form-control" required>
                                                 <option>Select</option>
 
@@ -183,7 +183,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label for="cc-payment" class="control-label mb-1">Color</label>
-                                            <select name="color_id" id="color_id" type="text" value=""
+                                            <select name="color_id" id="color_id[]" type="text" value=""
                                                 class="form-control" required>
                                                 <option>Select</option>
                                                 @foreach ($colors as $list)
@@ -198,7 +198,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label for="cc-payment" class="control-label mb-1">Quantity</label>
-                                            <input id="qty" name="qty" type="text" class="form-control"
+                                            <input id="qty" name="qty[]" type="text" class="form-control"
                                                 aria-required="true" aria-invalid="false" required>
                                         </div>
                                     </div>
@@ -206,7 +206,7 @@
 
                                         <div class="form-group">
                                             <label for="image" class="control-label mb-1">Image</label>
-                                            <input id="attr_image" name="attr_image" type="file" value=""
+                                            <input id="attr_image" name="attr_image[]" type="file" value=""
                                                 class="form-control" aria-required="true" aria-invalid="false">
                                             @error('attr_image')
                                                 <div class="alert alert-danger" role="alert">
@@ -252,27 +252,35 @@
     </div>
 
     <script>
+        var loop_count = 1;
         function add_more() {
-            // alert('tets');
-            var html = '<div class="card"><div class="card-body"><div class="form-group"><div class="row">';
-            html +=
-                '<div class="col-lg-3"><label for="cc-payment" class="control-label mb-1">SkU</label><input id="cc-pament" name="sku" type="text" value="" class="form-control"aria-required="true" aria-invalid="false" required></div> </div>'
-            html +=
-                '<div class="col-lg-3"><label for="cc-payment" class="control-label mb-1">MRP</label><input id="cc-pament" name="mrp" type="text" value="" class="form-control"aria-required="true" aria-invalid="false" required></div> </div>'
-            html +=
-                '<div class="col-lg-3"><label for="cc-payment" class="control-label mb-1">Price</label><input id="cc-pament" name="price" type="text" value="" class="form-control"aria-required="true" aria-invalid="false" required></div> </div>'
+            loop_count++;
+            
+            var html='<div class="card" id="product_attr_'+loop_count+'"><div class="card-body"><div class="form-group"><div class="row">';
+            html +='<div class="col-lg-3"><label for="cc-payment" class="control-label mb-1">SkU</label><input id="cc-pament" name="sku[]" type="text" value="" class="form-control"aria-required="true" aria-invalid="false" required></div> </div>'
+            html +='<div class="col-lg-3"><label for="cc-payment" class="control-label mb-1">MRP</label><input id="cc-pament" name="mrp[]" type="text" value="" class="form-control"aria-required="true" aria-invalid="false" required></div> </div>'
+            html +='<div class="col-lg-3"><label for="cc-payment" class="control-label mb-1">Price</label><input id="cc-pament" name="price[]" type="text" value="" class="form-control"aria-required="true" aria-invalid="false" required></div> </div>'
 
             var size_id_html = jQuery('#size_id').html();
-            html +=
-                '<div class="col-lg-3"><label for="cc-payment" class="control-label mb-1">Size</label><select name="size_id" id="size_id" type="text" value="" class="form-control" required><option>Select</option>@foreach ($sizes as $list)<option value="{{ $list->id }}">{{ $list->size }} </option> @endforeach </select></div></div>'
-            html +=
-                '<div class="col-lg-3"><label for="cc-payment" class="control-label mb-1">Color</label><select name="color_id" id="color_id" type="text" value="" class="form-control" required><option>Select</option>@foreach ($colors as $list)<option value="{{ $list->id }}">{{ $list->color }} </option> @endforeach </select></div></div>'
-            html +=
-                '<div class="col-lg-3"><label for="cc-payment" class="control-label mb-1">Quanty</label><input id="cc-pament" name="qty" type="text" value="" class="form-control"aria-required="true" aria-invalid="false" required></div> </div>'
-            html +=
-                '<div class="col-lg-3"><label for="cc-payment" class="control-label mb-1">Image</label><input id="cc-pament" name="attr_image" type="file" value="" class="form-control"aria-required="true" aria-invalid="false" required></div> </div>'
+            html +='<div class="col-lg-3"><label for="cc-payment" class="control-label mb-1">Size</label><select name="size_id[]" id="size_id" type="text" value="" class="form-control" required><option>Select</option>@foreach ($sizes as $list)<option value="{{ $list->id }}">{{ $list->size }} </option> @endforeach </select></div></div>'
+            html +='<div class="col-lg-3"><label for="cc-payment" class="control-label mb-1">Color</label><select name="color_id[]" id="color_id" type="text" value="" class="form-control" required><option>Select</option>@foreach ($colors as $list)<option value="{{ $list->id }}">{{ $list->color }} </option> @endforeach </select></div></div>'
+            html +='<div class="col-lg-3"><label for="cc-payment" class="control-label mb-1">Quanty</label><input id="cc-pament" name="qty[]" type="text" value="" class="form-control"aria-required="true" aria-invalid="false" required></div> </div>'
+            html +='<div class="col-lg-3"><label for="cc-payment" class="control-label mb-1">Image</label><input id="cc-pament" name="attr_image[]" type="file" value="" class="form-control"aria-required="true" aria-invalid="false" required></div> </div>'
+            html+='<div class="col-md-2"><label for="attr_image" class="control-label mb-1">&nbsp;&nbsp;&nbsp;</label><button type="button" class="btn btn-lg btn-danger " onclick=remove_more("'+loop_count+'")><i class="fa fa-minus"></i>&nbsp; Remove</button></div>';
+            html+='</div></div></div></div>';
 
             jQuery('#product_attr_box').append(html);
         }
+
+        function remove_more(loop_count){
+            // alert('dsdsd');
+            jQuery('#product_attr_'+loop_count).remove();
+
+        }
+          function remove_more(loop_count){
+            // console.log('product_attr_'+loop_count);
+        jQuery('#product_attr_'+loop_count).remove();
+   }
+
     </script>
 @endsection

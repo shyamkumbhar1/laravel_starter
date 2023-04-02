@@ -75,6 +75,10 @@ class ProductController extends Controller
     }
     public function manage_product_process(Request $request)
     {
+        echo "<pre>";
+        print_r($request->post());
+        die();
+
         if ($request->post('id') > 0) {
             $image_validator = 'mimes:jpeg,jpg,png';
         } else {
