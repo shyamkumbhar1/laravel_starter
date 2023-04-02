@@ -30,18 +30,18 @@ class ProductController extends Controller
             // echo "edit Mode";
             $arr = Product::where(['id' => $id])->get();
             $result['category_id']=$arr[0]->category_id;
-  $result['name']=$arr[0]->name;
-  $result['image']=$arr[0]->image;
-  $result['slug']=$arr[0]->slug;
-  $result['brand']=$arr[0]->brand;
-  $result['model']=$arr[0]->model;
-  $result['short_desc']=$arr[0]->short_desc;
-  $result['desc']=$arr[0]->desc;
-  $result['keywords']=$arr[0]->keywords;
-  $result['technical_specification']=$arr[0]->technical_specification;
-  $result['uses']=$arr[0]->uses;
-  $result['warranty']=$arr[0]->warranty;
-  $result['status']=$arr[0]->status;
+            $result['name']=$arr[0]->name;
+            $result['image']=$arr[0]->image;
+            $result['slug']=$arr[0]->slug;
+            $result['brand']=$arr[0]->brand;
+            $result['model']=$arr[0]->model;
+            $result['short_desc']=$arr[0]->short_desc;
+            $result['desc']=$arr[0]->desc;
+            $result['keywords']=$arr[0]->keywords;
+            $result['technical_specification']=$arr[0]->technical_specification;
+            $result['uses']=$arr[0]->uses;
+            $result['warranty']=$arr[0]->warranty;
+            $result['status']=$arr[0]->status;
             $result['id'] = $arr[0]->id;
 
 
@@ -65,12 +65,11 @@ class ProductController extends Controller
         
 
         // fetch Categoey Data
-
         $result['category'] = Db::table('categories')->where(['status'=>'1'])->get();
-        
-// echo "<pre>";
-//         print_r($result['category']);
-//         die();
+        $result['sizes'] = Db::table('sizes')->where(['status'=>'1'])->get();
+        $result['colors'] = Db::table('colors')->where(['status'=>'1'])->get();
+
+        // dd($result['sizes'],$result['colors']);
 
         return view('admin.manage_product', $result);
     }
@@ -86,20 +85,6 @@ class ProductController extends Controller
              $request->validate([
             'name' => 'required',
             'image' => $image_validator,
-            // 'slug' => 'required | unique:products,slug'.$request->post('id')
-            // 'category_id' => 'required',
-            // 'name' => 'required',
-            // 'image' => 'required',
-            // 'slug' => 'required',
-            // 'brand' => 'required',
-            // 'short_desc' => 'required',
-            // 'model' => 'required',
-            // 'desc' => 'required',
-            // 'keywords' => 'required',
-            // 'technical_specification' => 'required',
-            // 'uses' => 'required',
-            // 'warranty' => 'required',
-
         
         ]);
 
@@ -158,60 +143,10 @@ class ProductController extends Controller
         return redirect('admin/product');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+ 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
-    {
-        //
-    }
+   
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Product $product)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Product $product)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-
-    public function destroy(Product $product)
-    {
-        //
-    }
 }
