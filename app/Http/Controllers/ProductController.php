@@ -75,9 +75,7 @@ class ProductController extends Controller
     }
     public function manage_product_process(Request $request)
     {
-        echo "<pre>";
-        print_r($request->post());
-        die();
+     
 
         if ($request->post('id') > 0) {
             $image_validator = 'mimes:jpeg,jpg,png';
@@ -124,6 +122,34 @@ class ProductController extends Controller
         // $product->status = $request->post('status');
         $product->status = 1;
         $product->save();
+
+        /**  Product Attr start */
+
+        $skuArr = $request->post('sku');
+        $mrpArr = $request->post('mrp');
+        $priceArr = $request->post('price');
+        $qtyArr = $request->post('qty');
+        $size_idArr = $request->post('size_id');
+        $color_idArr = $request->post('color_id');
+        foreach($skuArr as $key => $val){
+            $productAttrArr['productS_id'] = 1 ;
+            $productAttrArr['sku'] = $skuArr[$key] ;
+            $productAttrArr['attr_image'] = 'test' ;
+            $productAttrArr['mrp'] = $mrpArr[$key] ;
+            $productAttrArr['price'] = $priceArr[$key];
+            $productAttrArr['qty'] = $qtyArr[$key] ;
+            $productAttrArr['size_id'] = $size_idArr[$key] ;
+            $productAttrArr['color_id'] = $color_idArr[$key];
+            DB::table('products_attr')->insert($productAttrArr);
+        }
+
+        // echo "<pre>";
+        // print_r($skuArr);
+        // die();
+
+        /**  Product Attr End */
+
+
         $request->session()->flash('message', $msg);
         return redirect('admin/product');
     }
