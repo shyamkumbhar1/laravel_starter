@@ -8,6 +8,8 @@ use App\Http\Controllers\Mail\mailController;
 use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
 use App\Http\Controllers\Product1Controller;
 use App\Http\Controllers\ImageUploadAwsController;
+use App\Http\Controllers\gmailSmtpEmailController;
+use App\Http\Controllers\InstamozaController;
 
 
 
@@ -30,6 +32,11 @@ Route::get('/send-email',[mailController::class,'sendEmail'] );
 Route::get('/Mailable',[mailController::class,'Mailable'] );
 Route::get('/mark-Down',[mailController::class,'Markdown'] );
 Route::get('/preview-email-template',[mailController::class,'previewTemplate'] );
+
+// Email Send Using Gmail smtp
+Route::get('/gmail-smtp',[gmailSmtpEmailController::class,'previewTemplate'] );
+
+
 
 
 
@@ -104,6 +111,12 @@ Route::get('/set-config',function(){
 // razorpay-payment
 Route::get('razorpay-payment', [RazorpayPaymentController::class, 'index']);
 Route::post('razorpay-payment', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');
+
+// Instamoza Payment-getway
+Route::get('submit', [InstamozaController::class, 'submit']);
+Route::get('instamozo_redirect', [InstamozaController::class, 'instamozo_redirect']);
+
+
 
 
 // CRUL 
