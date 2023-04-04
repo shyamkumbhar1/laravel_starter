@@ -37,6 +37,16 @@ Route::get('/preview-email-template',[mailController::class,'previewTemplate'] )
 // Email Send Using Gmail smtp
 Route::get('/gmail-smtp',[gmailSmtpEmailController::class,'previewTemplate'] );
 
+// Email Send Usiing Cron Job
+
+Route::get('email-test', function(){
+  
+    $details['email'] = 'shyamkumbhar509@gmail.com';
+  
+    dispatch(new App\Jobs\SendEmailJob($details));
+  
+});
+
 
 
 
