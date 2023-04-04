@@ -10,6 +10,7 @@ use App\Http\Controllers\Product1Controller;
 use App\Http\Controllers\ImageUploadAwsController;
 use App\Http\Controllers\gmailSmtpEmailController;
 use App\Http\Controllers\InstamozaController;
+use App\Http\Controllers\ObserverProductController;
 
 
 
@@ -171,4 +172,7 @@ Route::get('image-upload', [ ImageUploadAwsController::class, 'imageUpload' ])->
 Route::post('image-upload', [ ImageUploadAwsController::class, 'imageUploadPost' ])->name('image.upload.post');
 Route::get('get-image', [ ImageUploadAwsController::class, 'getImage' ]);
 
+
+// observer 
+Route::get('product2',[ObserverProductController::class,'index']);
 
