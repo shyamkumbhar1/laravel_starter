@@ -11,6 +11,8 @@ use App\Http\Controllers\ImageUploadAwsController;
 use App\Http\Controllers\gmailSmtpEmailController;
 use App\Http\Controllers\InstamozaController;
 use App\Http\Controllers\ObserverProductController;
+use App\Http\Controllers\RelationshipController;
+use App\Http\Controllers\CollectionController;
 
 
 
@@ -186,3 +188,11 @@ Route::get('get-image', [ ImageUploadAwsController::class, 'getImage' ]);
 // observer 
 Route::get('product2',[ObserverProductController::class,'index']);
 
+// Relationship In Laravel
+
+Route::get('oneToOne',[RelationshipController::class,'oneToOne']);
+Route::get('oneToMany',[RelationshipController::class,'oneToMany']);
+Route::get('ManyToMany',[RelationshipController::class,'ManyToMany']);
+
+// Colection In Laravel
+Route::get('collection',[CollectionController::class,'collection']);
