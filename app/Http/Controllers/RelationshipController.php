@@ -24,10 +24,8 @@ class RelationshipController extends Controller
         
     }
     public function ManyToMany (){
-        // $user = User2::find(1);	
-        // dd($user->roles);
-
-    $role = Role::find(1);
-    dd($role->users);
+        /* Table Name : User2,Role,Role_user */
+         $data = User2::find(1);
+         dd($data->roles);
     }
 }
