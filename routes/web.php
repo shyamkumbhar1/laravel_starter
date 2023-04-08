@@ -215,3 +215,6 @@ Route::get('toSql',[QueryBuilderToSql::class,'index']);
 
 // Store Procedure  
 Route::get('StoreProcedure',[StoreProcedureController::class,'StoreProcedure']);
+Route::get('view',[StoreProcedureController::class,'view']);
+
+

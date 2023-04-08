@@ -13,4 +13,9 @@ class StoreProcedureController extends Controller
         $result = DB::select("call All_user($Param1,$Param2);");
        dd($result);
     }
+
+    public function view(){
+        $result = DB::table('fetch_all_user')->select('*')->get();
+        dd($result);
+    }
 }
