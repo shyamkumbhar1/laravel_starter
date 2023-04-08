@@ -211,3 +211,6 @@ Route::get('Eloquent-scop',function (){
 
 // QueryBuilder To Sql Converter
 Route::get('toSql',[QueryBuilderToSql::class,'index']);
+
+// testing 
+// Route::get('index',[QueryBuilderToSql::class,'index']);
