@@ -12,6 +12,7 @@ use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\RelationshipController;
 use App\Http\Controllers\gmailSmtpEmailController;
 use App\Http\Controllers\ImageUploadAwsController;
+use App\Http\Controllers\StoreProcedureController;
 use App\Http\Controllers\ObserverProductController;
 use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
 
@@ -212,5 +213,5 @@ Route::get('Eloquent-scop',function (){
 // QueryBuilder To Sql Converter
 Route::get('toSql',[QueryBuilderToSql::class,'index']);
 
-// testing 
-// Route::get('index',[QueryBuilderToSql::class,'index']);
+// Store Procedure  
+Route::get('StoreProcedure',[StoreProcedureController::class,'StoreProcedure']);
