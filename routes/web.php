@@ -3,20 +3,25 @@
 use Ixudra\Curl\Facades\Curl;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\EncryptioController;
-use App\Http\Controllers\Mail\mailController;
-use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
+use App\Http\Controllers\QueryBuilderToSql;
 use App\Http\Controllers\Product1Controller;
-use App\Http\Controllers\ImageUploadAwsController;
-use App\Http\Controllers\gmailSmtpEmailController;
+use App\Http\Controllers\EncryptioController;
 use App\Http\Controllers\InstamozaController;
-use App\Http\Controllers\ObserverProductController;
-use App\Http\Controllers\RelationshipController;
+use App\Http\Controllers\Mail\mailController;
 use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\RelationshipController;
+use App\Http\Controllers\gmailSmtpEmailController;
+use App\Http\Controllers\ImageUploadAwsController;
+use App\Http\Controllers\ObserverProductController;
+use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
 
 
 
 
+Route::get('/', function () {
+    
+    return view('welcome');
+});
 Route::get('/', function () {
     
     return view('welcome');
@@ -193,6 +198,16 @@ Route::get('product2',[ObserverProductController::class,'index']);
 Route::get('oneToOne',[RelationshipController::class,'oneToOne']);
 Route::get('oneToMany',[RelationshipController::class,'oneToMany']);
 Route::get('ManyToMany',[RelationshipController::class,'ManyToMany']);
+Route::get('HasManyThrough',[RelationshipController::class,'HasManyThrough']);
 
 // Colection In Laravel
 Route::get('collection',[CollectionController::class,'collection']);
+
+// How to Create and Use Query Scope in Laravel Eloquent
+
+Route::get('Eloquent-scop',function (){
+    return "scope ";
+});
+
+// QueryBuilder To Sql Converter
+Route::get('toSql',[QueryBuilderToSql::class,'index']);

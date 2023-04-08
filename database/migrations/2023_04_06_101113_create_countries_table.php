@@ -13,16 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user5s', function (Blueprint $table) {
+        Schema::create('countries', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->integer('country_id')->unsigned();
-            $table->rememberToken();
             $table->timestamps();
-
-            $table->foreign('country_id')->references('countries')->on('id')->onDelete('cascade');
         });
     }
 
@@ -33,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user5s');
+        Schema::dropIfExists('countries');
     }
 };

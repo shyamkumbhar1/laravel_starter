@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
           
             $table->increments('id');
-
             $table->string("name");
+            $table->integer("user_id")->unsigned();
             $table->timestamps();
-        });
+            $table->foreign('user_id')->references('user5s')->on('id')->onDelete('cascade');
+            });
     }
 
     /**

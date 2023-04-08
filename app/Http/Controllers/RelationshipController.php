@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User5;
 use Illuminate\Http\Request;
-use App\Models\{User1,Phone,Comment,Post,Role,User2};
+use Illuminate\Support\Facades\DB;
+use App\Models\{User1,Phone,Comment, Country, Post,Role,User2};
 
 
 class RelationshipController extends Controller
@@ -27,5 +29,14 @@ class RelationshipController extends Controller
         /* Table Name : User2,Role,Role_user */
          $data = User2::find(1);
          dd($data->roles);
+    }
+    public function HasManyThrough (){
+        /* Table Name : Country,User5,Post */
+         $data = Country::find(1);
+//          DB::enableQueryLog();
+// $users = User5::select("*")->get();
+// $quries = DB::getQueryLog();
+// dd($quries);
+         dd($data->posts);
     }
 }
