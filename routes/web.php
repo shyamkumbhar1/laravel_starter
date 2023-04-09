@@ -15,17 +15,13 @@ use App\Http\Controllers\ImageUploadAwsController;
 use App\Http\Controllers\StoreProcedureController;
 use App\Http\Controllers\ObserverProductController;
 use App\Http\Controllers\MultipleDatabaseController;
-use App\Http\Controllers\{ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
+use App\Http\Controllers\{CacheController,ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
 
 
 
 
 Route::get('/', function () {
-    
-    return view('welcome');
-});
-Route::get('/', function () {
-    
+ 
     return view('welcome');
 });
 
@@ -223,4 +219,7 @@ Route::get('view',[StoreProcedureController::class,'view']);
 // Used 2 Database in Single Laravel Application
 
 Route::get('Multiple',[MultipleDatabaseController::class,'Multiple']);
+Route::get('cache',[CacheController::class,'cache']);
+
+
 
