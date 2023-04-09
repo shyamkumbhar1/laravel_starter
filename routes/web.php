@@ -201,6 +201,8 @@ Route::get('oneToOne',[RelationshipController::class,'oneToOne']);
 Route::get('oneToMany',[RelationshipController::class,'oneToMany']);
 Route::get('ManyToMany',[RelationshipController::class,'ManyToMany']);
 Route::get('HasManyThrough',[RelationshipController::class,'HasManyThrough']);
+Route::get('Eggerloading',[RelationshipController::class,'Eggerloading']);
+
 
 // Colection In Laravel
 Route::get('collection',[CollectionController::class,'collection']);

@@ -39,4 +39,11 @@ class RelationshipController extends Controller
 // dd($quries);
          dd($data->posts);
     }
+
+    public function Eggerloading (){
+         /* Table Name : User2,Role,Role_user */
+         $data = User2::find(1)->roles;  // Normal Query 
+         $data1 = User2::with('roles')->get();  // Egger Loading Query
+         dd($data,$data1);
+    }
 }
