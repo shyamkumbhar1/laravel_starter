@@ -15,6 +15,7 @@ use App\Http\Controllers\ImageUploadAwsController;
 use App\Http\Controllers\StoreProcedureController;
 use App\Http\Controllers\ObserverProductController;
 use App\Http\Controllers\MultipleDatabaseController;
+use App\Http\Controllers\Session_CookiesController;
 use App\Http\Controllers\{CacheController,ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
 
 
@@ -79,6 +80,10 @@ Route::view('login1','session.login');
 Route::view('home1','session.home');
 
 Route::post('/login1',[SessionController::class,'login']);
+
+// Session And Cookies
+Route::get('/session',[Session_CookiesController::class,'session']);
+Route::get('/cookies',[Session_CookiesController::class,'cookies']);
 
 
 // Custom Auth 1 ( login Register and logout )
