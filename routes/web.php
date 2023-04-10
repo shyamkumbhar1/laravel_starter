@@ -16,13 +16,16 @@ use App\Http\Controllers\StoreProcedureController;
 use App\Http\Controllers\ObserverProductController;
 use App\Http\Controllers\MultipleDatabaseController;
 use App\Http\Controllers\Session_CookiesController;
+use App\Http\Controllers\CustomAuthController;
+// use Http;
 use App\Http\Controllers\{CacheController,ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
 
 
 
 
 Route::get('/', function () {
- 
+ $result = Http::get('https://jsonplaceholder.typicode.com/posts');
+ print_r($result->collect());
     return view('welcome');
 });
 
@@ -64,6 +67,7 @@ Route::get('/addPost',[NormalHttpClient::class,"addPost"]);
 Route::get('/updatePost/{id}',[NormalHttpClient::class,"updatePost"]);
 Route::get('/deletePost/{id}',[NormalHttpClient::class,"deletePost"]);
 Route::get('/getInfo',[NormalHttpClient::class,"getInfo"]);
+Route::get('/save_api_data',[NormalHttpClient::class,"save_api_data_to_database"]);
 
 
 // third party api integration using GuzzleHttpclient
@@ -225,6 +229,24 @@ Route::get('view',[StoreProcedureController::class,'view']);
 
 Route::get('Multiple',[MultipleDatabaseController::class,'Multiple']);
 Route::get('cache',[CacheController::class,'cache']);
+
+
+
+
+
+// Multi Auth System 
+// Route::get('/login', 'CustomAuthController@showLoginForm')->name('login');
+// Route::post('/login', 'CustomAuthController@login');
+// Route::post('/logout', 'CustomAuthController@logout')->name('logout');
+
+Route::get('login',[CustomAuthController::class,'showLoginForm'])->name('login');
+Route::post('login',[CustomAuthController::class,'login']);
+Route::post('logout',[CustomAuthController::class,'logout'])->name('logout');
+
+
+Route::get('/dashboard', function () {
+    // Only authenticated users may access this route
+})->middleware('auth:custom');
 
 
 

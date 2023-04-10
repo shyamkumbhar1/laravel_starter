@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Models\MyModel;
 
 
 class NormalHttpClient extends Controller
@@ -73,6 +74,23 @@ class NormalHttpClient extends Controller
       
     }
 
+    public function save_api_data_to_database(){
+      $response = Http::get('https://jsonplaceholder.typicode.com/posts');
+
+      $data = json_decode($response->getbody(),true);
+
+      foreach ($data as $post) {
+        $newPost = new MyModel;
+        $newPost->userId = $post['userId'];
+        $newPost->title = $post['title'];
+        $newPost->body = $post['body'];
+        $newPost->save();
+     
+    }
+    return response()->json(['message' => 'Posts saved successfully']);
+
+
+    }
 
  
 }

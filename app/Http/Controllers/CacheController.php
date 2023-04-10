@@ -9,8 +9,8 @@ class CacheController extends Controller
 {
     public function cache (){
     
-        Cache::put('name1','shyam',5);
-        dd(Cache::get('name1'),Cache::has('name'));
+        Cache::set('name12','shyam kumbhar',5);
+        dd(Cache::get('name12'),Cache::has('name'));
 
     
     }

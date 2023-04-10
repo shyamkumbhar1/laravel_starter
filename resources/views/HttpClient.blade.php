@@ -21,7 +21,7 @@
     </head>
    <body>
     <h1>Http Client </h1>
-    {!print_r($data)!}
+    {{-- {!print_r($data)!} --}}
     @foreach($data as $item )
     <h2>{{$item['id']}}</h2>
     <p>{{$item['title']}}</p>
