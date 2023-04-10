@@ -234,19 +234,3 @@ Route::get('cache',[CacheController::class,'cache']);
 
 
 
-// Multi Auth System 
-// Route::get('/login', 'CustomAuthController@showLoginForm')->name('login');
-// Route::post('/login', 'CustomAuthController@login');
-// Route::post('/logout', 'CustomAuthController@logout')->name('logout');
-
-Route::get('login',[CustomAuthController::class,'showLoginForm'])->name('login');
-Route::post('login',[CustomAuthController::class,'login']);
-Route::post('logout',[CustomAuthController::class,'logout'])->name('logout');
-
-
-Route::get('/dashboard', function () {
-    // Only authenticated users may access this route
-})->middleware('auth:custom');
-
-
-
