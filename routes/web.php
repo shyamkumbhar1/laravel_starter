@@ -10,6 +10,7 @@ use App\Http\Controllers\InstamozaController;
 use App\Http\Controllers\Mail\mailController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\RelationshipController;
+use App\Http\Controllers\FooController;
 use App\Http\Controllers\gmailSmtpEmailController;
 use App\Http\Controllers\ImageUploadAwsController;
 use App\Http\Controllers\StoreProcedureController;
@@ -34,6 +35,7 @@ Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'i
 
 // Basic CRUD
 Route::resource('products', ProductController::class);
+
 
 
 // Email Send using cron job 
@@ -230,7 +232,9 @@ Route::get('view',[StoreProcedureController::class,'view']);
 Route::get('Multiple',[MultipleDatabaseController::class,'Multiple']);
 Route::get('cache',[CacheController::class,'cache']);
 
+// Services Provider ans service container
 
+Route::get('/foo', [FooController::class,'index']);
 
 
 
