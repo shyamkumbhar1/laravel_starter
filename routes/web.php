@@ -18,6 +18,7 @@ use App\Http\Controllers\ObserverProductController;
 use App\Http\Controllers\MultipleDatabaseController;
 use App\Http\Controllers\Session_CookiesController;
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\UserController;
 // use Http;
 use App\Http\Controllers\{CacheController,ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
 
@@ -25,8 +26,9 @@ use App\Http\Controllers\{CacheController,ProductController,NormalHttpClient,Guz
 
 
 Route::get('/', function () {
- $result = Http::get('https://jsonplaceholder.typicode.com/posts');
- print_r($result->collect());
+    $collection = collect(['apple', 'banana', 'orange']);
+    echo "<pre>";
+ print_r($collection);
     return view('welcome');
 });
 
@@ -235,6 +237,14 @@ Route::get('cache',[CacheController::class,'cache']);
 // Services Provider ans service container
 
 Route::get('/foo', [FooController::class,'index']);
+
+// Import and Export 
+
+
+
+Route::get('/file-import',[UserController::class,'importView'])->name('import-view');
+Route::post('/import',[UserController::class,'import'])->name('import');
+Route::get('/export-users',[UserController::class,'exportUsers'])->name('export-users');
 
 
 
