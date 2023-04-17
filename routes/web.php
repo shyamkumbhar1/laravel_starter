@@ -249,6 +249,8 @@ Route::get('/export-users',[UserController::class,'exportUsers'])->name('export-
 // Basic Topic
 Route::get('encrypt',[BasicController::class,'encrypt']);
 Route::get('decrypt',[BasicController::class,'decrypt']);
+Route::get('array',[BasicController::class,'array']);
+Route::get('string',[BasicController::class,'string']);
 
 // Pattern print
 Route::get('triangle',[PatternController::class,'triangle']);
