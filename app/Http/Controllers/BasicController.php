@@ -20,4 +20,6 @@ class BasicController extends Controller
           $decrypt= Crypt::decryptString('your_encrypted_string');
           print_r($decrypt);
      }
+
+     
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\FooController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BasicController;
+use App\Http\Controllers\PatternController;
 use App\Http\Controllers\QueryBuilderToSql;
 use App\Http\Controllers\Product1Controller;
 use App\Http\Controllers\EncryptioController;
@@ -18,8 +19,8 @@ use App\Http\Controllers\gmailSmtpEmailController;
 use App\Http\Controllers\ImageUploadAwsController;
 use App\Http\Controllers\StoreProcedureController;
 use App\Http\Controllers\ObserverProductController;
-use App\Http\Controllers\Session_CookiesController;
 // use Http;
+use App\Http\Controllers\Session_CookiesController;
 use App\Http\Controllers\MultipleDatabaseController;
 use App\Http\Controllers\{CacheController,ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
 
@@ -241,11 +242,19 @@ Route::get('/foo', [FooController::class,'index']);
 
 // Import and Export 
 
-
-
 Route::get('/file-import',[UserController::class,'importView'])->name('import-view');
 Route::post('/import',[UserController::class,'import'])->name('import');
 Route::get('/export-users',[UserController::class,'exportUsers'])->name('export-users');
 
-Route::get('basic',[BasicController::class,'encrypt']);
+// Basic Topic
+Route::get('encrypt',[BasicController::class,'encrypt']);
+Route::get('decrypt',[BasicController::class,'decrypt']);
+
+// Pattern print
+Route::get('triangle',[PatternController::class,'triangle']);
+
+
+
+
+
 
