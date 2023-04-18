@@ -42,5 +42,12 @@ class BasicController extends Controller
           $string1 = " Hello City ";
           dd(trim($string));
      }
+     public function magic_constant (){
+     //     echo __LINE__;
+         echo __DIR__;
+     }
+     public function magic_methode(){
+          return view('magic_methode');
+     }
      
 }

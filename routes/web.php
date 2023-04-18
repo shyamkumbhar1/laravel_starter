@@ -14,12 +14,13 @@ use App\Http\Controllers\InstamozaController;
 use App\Http\Controllers\Mail\mailController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\MagicMethodeController;
 use App\Http\Controllers\RelationshipController;
 use App\Http\Controllers\gmailSmtpEmailController;
 use App\Http\Controllers\ImageUploadAwsController;
 use App\Http\Controllers\StoreProcedureController;
-use App\Http\Controllers\ObserverProductController;
 // use Http;
+use App\Http\Controllers\ObserverProductController;
 use App\Http\Controllers\Session_CookiesController;
 use App\Http\Controllers\MultipleDatabaseController;
 use App\Http\Controllers\{CacheController,ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
@@ -251,9 +252,15 @@ Route::get('encrypt',[BasicController::class,'encrypt']);
 Route::get('decrypt',[BasicController::class,'decrypt']);
 Route::get('array',[BasicController::class,'array']);
 Route::get('string',[BasicController::class,'string']);
+Route::get('magic_constant',[BasicController::class,'magic_constant']);
+Route::get('magic_methode',[BasicController::class,'magic_methode']);
 
 // Pattern print
 Route::get('triangle',[PatternController::class,'triangle']);
+
+// Magic Methode 
+Route::get('triangle',[MagicMethodeController::class,'triangle']);
+
 
 
 
