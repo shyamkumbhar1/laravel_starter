@@ -37,7 +37,10 @@ class BasicController extends Controller
      }
 
      public function string (){
-          return "string  function";
+          // return "string  function";
+          $string = "    Hello world      ";
+          $string1 = " Hello City ";
+          dd(trim($string));
      }
      
 }
