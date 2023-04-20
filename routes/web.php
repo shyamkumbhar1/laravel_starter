@@ -20,13 +20,14 @@ use App\Http\Controllers\gmailSmtpEmailController;
 use App\Http\Controllers\ImageUploadAwsController;
 use App\Http\Controllers\StoreProcedureController;
 // use Http;
+use App\Http\Controllers\PrintArrayToTableController;
 use App\Http\Controllers\ObserverProductController;
 use App\Http\Controllers\Session_CookiesController;
 use App\Http\Controllers\MultipleDatabaseController;
+use App\Http\Controllers\DropdownController;
+use App\Http\Controllers\Post1Controller;
 use App\Http\Controllers\{CacheController,ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
-
-
-
+use App\Models\Post;
 
 Route::get('/', function () {
     $collection = collect(['apple', 'banana', 'orange']);
@@ -218,6 +219,7 @@ Route::get('Eggerloading',[RelationshipController::class,'Eggerloading']);
 
 // Colection In Laravel
 Route::get('collection',[CollectionController::class,'collection']);
+Route::get('in-memory-databases',[CollectionController::class,'inMemoryDatabases']);
 
 // How to Create and Use Query Scope in Laravel Eloquent
 
@@ -261,8 +263,25 @@ Route::get('triangle',[PatternController::class,'triangle']);
 // Magic Methode 
 Route::get('triangle',[MagicMethodeController::class,'triangle']);
 
+// Dependancy DropDown In laravel
 
 
+Route::get('dropdown', [DropdownController::class, 'index']);
+Route::post('api/fetch-states', [DropdownController::class, 'fetchState']);
+Route::post('api/fetch-cities', [DropdownController::class, 'fetchCity']);
+
+
+// Third Part Api integration
+Route::get('fetchDta', [Post1Controller::class, 'fetchDta']);
+
+// Reverse routing 
+Route::get('/reverse-routing/{id}', function ($id) {
+    $url = route('user.profile', ['id' => 1]);
+print_r($url);
+})->name('user.profile');
+
+// print array data to table
+Route::get('array-to-table',[PrintArrayToTableController::class,'index']);
 
 
 
