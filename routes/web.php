@@ -1,13 +1,16 @@
 <?php
 
+use App\Models\Post;
 use Ixudra\Curl\Facades\Curl;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FooController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BasicController;
+use App\Http\Controllers\Post1Controller;
 use App\Http\Controllers\PatternController;
 use App\Http\Controllers\QueryBuilderToSql;
+use App\Http\Controllers\DropdownController;
 use App\Http\Controllers\Product1Controller;
 use App\Http\Controllers\EncryptioController;
 use App\Http\Controllers\InstamozaController;
@@ -15,19 +18,16 @@ use App\Http\Controllers\Mail\mailController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\MagicMethodeController;
+// use Http;
 use App\Http\Controllers\RelationshipController;
 use App\Http\Controllers\gmailSmtpEmailController;
 use App\Http\Controllers\ImageUploadAwsController;
 use App\Http\Controllers\StoreProcedureController;
-// use Http;
-use App\Http\Controllers\PrintArrayToTableController;
 use App\Http\Controllers\ObserverProductController;
 use App\Http\Controllers\Session_CookiesController;
 use App\Http\Controllers\MultipleDatabaseController;
-use App\Http\Controllers\DropdownController;
-use App\Http\Controllers\Post1Controller;
+use App\Http\Controllers\PrintArrayToTableController;
 use App\Http\Controllers\{CacheController,ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
-use App\Models\Post;
 
 Route::get('/', function () {
     $collection = collect(['apple', 'banana', 'orange']);
@@ -283,6 +283,8 @@ print_r($url);
 // print array data to table
 Route::get('array-to-table',[PrintArrayToTableController::class,'index']);
 
-
-
-
+// redis
+Route::get('send-mail',function(){
+    dispatch(new \App\Jobs\SendEmailJob1());
+    return "Hello";
+});
