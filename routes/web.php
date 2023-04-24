@@ -25,7 +25,7 @@ use App\Http\Controllers\ObserverProductController;
 use App\Http\Controllers\Session_CookiesController;
 use App\Http\Controllers\MultipleDatabaseController;
 use App\Http\Controllers\DropdownController;
-use App\Http\Controllers\Post1Controller;
+use App\Http\Controllers\{Post1Controller,MultiRecordController};
 use App\Http\Controllers\{CacheController,ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
 use App\Models\Post;
 
@@ -185,10 +185,10 @@ Route::name('admin.')->group(function () {
     })->name('users1');
 });
 
-Route::controller(OrderController::class)->group(function () {
-    Route::get('/orders/{id}', 'show');
-    Route::post('/orders', 'store');
-});
+// Route::controller(OrderController::class)->group(function () {
+//     Route::get('/orders/{id}', 'show');
+//     Route::post('/orders', 'store');
+// });
 
 
 // Encryption And decription 
@@ -283,6 +283,9 @@ print_r($url);
 // print array data to table
 Route::get('array-to-table',[PrintArrayToTableController::class,'index']);
 
+// Add Multiple Record in laravel
+Route::Resource('multi-record',MultiRecordController::class);
+Route::post('multi_record/destroy_multiple', [MultiRecordController::class,'destroy_multiple'])->name('multi_record.destroy_multiple');
 
 
 
