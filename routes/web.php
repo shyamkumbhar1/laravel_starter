@@ -3,7 +3,7 @@
 use Ixudra\Curl\Facades\Curl;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FooController;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\{AuthController,ChartJsController};
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BasicController;
 use App\Http\Controllers\PatternController;
@@ -287,5 +287,6 @@ Route::get('array-to-table',[PrintArrayToTableController::class,'index']);
 Route::Resource('multi-record',MultiRecordController::class);
 Route::post('multi_record/destroy_multiple', [MultiRecordController::class,'destroy_multiple'])->name('multi_record.destroy_multiple');
 
-
+// Chart Integration in laravel 
+Route::get('chart',[ChartJsController::class,'chart']);
 
