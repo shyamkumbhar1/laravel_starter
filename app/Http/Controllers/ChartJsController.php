@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class ChartJsController extends Controller
 {
-    public function chart(){
+    public function pieChart(){
        $result = DB::select(DB::raw('SELECT COUNT(*) as total_city , city  FROM users GROUP BY city'));
         $chartData = "";
         foreach ($result as $list) {
@@ -18,6 +18,27 @@ class ChartJsController extends Controller
         $arr['chartData'] = rtrim($chartData,",");
       
               
-        return view('chart',$arr);
+        return view('pai_chart',$arr);
+    }
+
+    public function barChart (){
+        $result = DB::select(DB::raw('SELECT COUNT(*) as total_city , city  FROM users GROUP BY city'));
+        $chartData = "";
+        foreach ($result as $list) {
+            $chartData .="['".$list->city ."',  " .$list->total_city ."],"; 
+          
+        }
+        $arr['chartData'] = rtrim($chartData,",");
+        return view('bar_chart',$arr);
+    }
+    public function lineChart (){
+        $result = DB::select(DB::raw('SELECT COUNT(*) as total_city , city  FROM users GROUP BY city'));
+        $chartData = "";
+        foreach ($result as $list) {
+            $chartData .="['".$list->city ."',  " .$list->total_city ."],"; 
+          
+        }
+        $arr['chartData'] = rtrim($chartData,",");
+        return view('line_chart',$arr);
     }
 }

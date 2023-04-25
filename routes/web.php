@@ -288,5 +288,7 @@ Route::Resource('multi-record',MultiRecordController::class);
 Route::post('multi_record/destroy_multiple', [MultiRecordController::class,'destroy_multiple'])->name('multi_record.destroy_multiple');
 
 // Chart Integration in laravel 
-Route::get('chart',[ChartJsController::class,'chart']);
+Route::get('pie-chart',[ChartJsController::class,'pieChart']);
+Route::get('bar-chart',[ChartJsController::class,'barChart']);
+Route::get('line-chart',[ChartJsController::class,'lineChart']);
 
