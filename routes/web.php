@@ -292,3 +292,6 @@ Route::get('pie-chart',[ChartJsController::class,'pieChart']);
 Route::get('bar-chart',[ChartJsController::class,'barChart']);
 Route::get('line-chart',[ChartJsController::class,'lineChart']);
 
+Route::get('er-diagram',function (){
+return view('er_diagram');
+});
