@@ -14,7 +14,7 @@ use App\Http\Controllers\InstamozaController;
 use App\Http\Controllers\Mail\mailController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\CustomAuthController;
-use App\Http\Controllers\MagicMethodeController;
+use App\Http\Controllers\{MagicMethodeController,AjaxController};
 use App\Http\Controllers\RelationshipController;
 use App\Http\Controllers\gmailSmtpEmailController;
 use App\Http\Controllers\ImageUploadAwsController;
@@ -295,3 +295,8 @@ Route::get('line-chart',[ChartJsController::class,'lineChart']);
 Route::get('er-diagram',function (){
 return view('er_diagram');
 });
+
+// Ajax Call
+
+Route::get('/ajax', [AjaxController::class,'index']);
+Route::post('/my-ajax-request', [AjaxController::class,'handleAjaxRequest'])->name('my-ajax-request');
