@@ -2,8 +2,7 @@
 
 use Ixudra\Curl\Facades\Curl;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FooController;
-use App\Http\Controllers\{AuthController,ChartJsController};
+use App\Http\Controllers\{AuthController,ChartJsController,Post2Controller,FooController};
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BasicController;
 use App\Http\Controllers\PatternController;
@@ -41,7 +40,6 @@ Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'i
 
 // Basic CRUD
 Route::resource('products', ProductController::class);
-
 
 
 // Email Send using cron job 
@@ -300,3 +298,6 @@ return view('er_diagram');
 
 Route::get('/ajax', [AjaxController::class,'index']);
 Route::post('/my-ajax-request', [AjaxController::class,'handleAjaxRequest'])->name('my-ajax-request');
+
+// rest Api
+Route::resource('post2',Post2Controller::class);
