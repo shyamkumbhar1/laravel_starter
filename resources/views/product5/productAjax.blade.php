@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Laravel Ajax CRUD Tutorial Example - ItSolutionStuff.com</title>
+    <title>Laravel Ajax Crud</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
     <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -15,7 +15,7 @@
 <body>
 
 <div class="container">
-    <h1>Laravel Ajax CRUD Tutorial Example - ItSolutionStuff.com</h1>
+    <h1>Laravel Ajax CRUD Tutorial Example</h1>
     <a class="btn btn-success" href="javascript:void(0)" id="createNewProduct"> Create New Product</a>
     <table class="table table-bordered data-table">
         <thead>
