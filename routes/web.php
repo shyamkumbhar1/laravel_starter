@@ -17,7 +17,7 @@ use App\Http\Controllers\{MagicMethodeController,AjaxController};
 use App\Http\Controllers\RelationshipController;
 use App\Http\Controllers\gmailSmtpEmailController;
 use App\Http\Controllers\ImageUploadAwsController;
-use App\Http\Controllers\StoreProcedureController;
+use App\Http\Controllers\{StoreProcedureController,Product5AjaxController};
 // use Http;
 use App\Http\Controllers\PrintArrayToTableController;
 use App\Http\Controllers\ObserverProductController;
@@ -35,14 +35,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Logs 
+// Logs
 Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
 
 // Basic CRUD
 Route::resource('products', ProductController::class);
 
 
-// Email Send using cron job 
+// Email Send using cron job
 
 Route::get('/send-email',[mailController::class,'sendEmail'] );
 Route::get('/Mailable',[mailController::class,'Mailable'] );
@@ -55,11 +55,11 @@ Route::get('/gmail-smtp',[gmailSmtpEmailController::class,'previewTemplate'] );
 // Email Send Usiing Cron Job
 
 Route::get('email-test', function(){
-  
+
     $details['email'] = 'shyamkumbhar509@gmail.com';
-  
+
     dispatch(new App\Jobs\SendEmailJob($details));
-  
+
 });
 
 
@@ -80,7 +80,7 @@ Route::get('/save_api_data',[NormalHttpClient::class,"save_api_data_to_database"
 Route::get('/getRequest ',[GuzzleHttpClient::class,"getRequest"]);
 Route::get('/postRequest ',[GuzzleHttpClient::class,"postRequest"]);
 
-// Laravel 8 - Accessors and Mutators 
+// Laravel 8 - Accessors and Mutators
 Route::get('add-product',[MutatorController::class,'setProduct']);
 Route::get('list-product',[MutatorController::class,'getProducts']);
 
@@ -99,18 +99,18 @@ Route::get('/cookies',[Session_CookiesController::class,'cookies']);
 // Custom Auth 1 ( login Register and logout )
 
 Route::get('login', [AuthController::class, 'index'])->name('login');
-Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
+Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
 Route::get('registration', [AuthController::class, 'registration'])->name('register');
-Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
-Route::get('dashboard', [AuthController::class, 'dashboard']); 
+Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
+Route::get('dashboard', [AuthController::class, 'dashboard']);
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 
-// Core Concept 
+// Core Concept
 
 Route::get('/array',[CoreConceptController::class,'array']);
 
-// middelware 
+// middelware
 
 Route::view('noaccess','middleware.noaccess')->name('noaccess1');
 Route::view('user','middleware.user')->middleware('ProtectedAge');
@@ -122,7 +122,7 @@ Route::view('user','middleware.user')->middleware('ProtectedAge');
 // });
 
 
-// helpers 
+// helpers
 
 Route::get('/helper',function(){
     //  echo messaage();
@@ -150,24 +150,24 @@ Route::get('instamozo_redirect', [InstamozaController::class, 'instamozo_redirec
 
 
 
-// CRUL 
+// CRUL
 
 Route::get('/curl-basic-core',[CurlController::class,'core']);
 Route::get('/curl-laravel',[CurlController::class,'laravel']);
 
 
-// image Upload 
+// image Upload
 Route::get('imageUpload',[imageUploadController::class,'index']);
 Route::post('upload-image',[imageUploadController::class,'upload']);
 
 
-// Named Route In Laravel 
+// Named Route In Laravel
 
 Route::get('route',[RouteController::class,'route']);
 Route::get('home',[RouteController::class,'home'])->name('home');
 Route::get('about/{category}',[RouteController::class,'about'])->name('about');
 
-// Prefix in laravel 
+// Prefix in laravel
 
 Route::prefix('admin')->group(function () {
     Route::get('/users', function () {
@@ -179,7 +179,7 @@ Route::prefix('admin')->group(function () {
 Route::name('admin.')->group(function () {
     Route::get('/users', function () {
         // Route assigned name "admin.users1"...
-     
+
     })->name('users1');
 });
 
@@ -189,21 +189,21 @@ Route::name('admin.')->group(function () {
 // });
 
 
-// Encryption And decription 
+// Encryption And decription
 Route::get('encrypt',[EncryptioController::class,'encrypt']);
 Route::get('decrypt',[EncryptioController::class,'decrypt']);
 
-// Fetch flight data 
-Route::get('/get-flightData', [AuthController::class, 'getFlightData']);    
+// Fetch flight data
+Route::get('/get-flightData', [AuthController::class, 'getFlightData']);
 
-// image upload using AWS 
+// image upload using AWS
 
 Route::get('image-upload', [ ImageUploadAwsController::class, 'imageUpload' ])->name('image.upload');
 Route::post('image-upload', [ ImageUploadAwsController::class, 'imageUploadPost' ])->name('image.upload.post');
 Route::get('get-image', [ ImageUploadAwsController::class, 'getImage' ]);
 
 
-// observer 
+// observer
 Route::get('product2',[ObserverProductController::class,'index']);
 
 // Relationship In Laravel
@@ -228,7 +228,7 @@ Route::get('Eloquent-scop',function (){
 // QueryBuilder To Sql Converter
 Route::get('toSql',[QueryBuilderToSql::class,'index']);
 
-// Store Procedure  
+// Store Procedure
 Route::get('StoreProcedure',[StoreProcedureController::class,'StoreProcedure']);
 Route::get('view',[StoreProcedureController::class,'view']);
 
@@ -241,7 +241,7 @@ Route::get('cache',[CacheController::class,'cache']);
 
 Route::get('/foo', [FooController::class,'index']);
 
-// Import and Export 
+// Import and Export
 
 Route::get('/file-import',[UserController::class,'importView'])->name('import-view');
 Route::post('/import',[UserController::class,'import'])->name('import');
@@ -258,7 +258,7 @@ Route::get('magic_methode',[BasicController::class,'magic_methode']);
 // Pattern print
 Route::get('triangle',[PatternController::class,'triangle']);
 
-// Magic Methode 
+// Magic Methode
 Route::get('triangle',[MagicMethodeController::class,'triangle']);
 
 // Dependancy DropDown In laravel
@@ -272,7 +272,7 @@ Route::post('api/fetch-cities', [DropdownController::class, 'fetchCity']);
 // Third Part Api integration
 Route::get('fetchDta', [Post1Controller::class, 'fetchDta']);
 
-// Reverse routing 
+// Reverse routing
 Route::get('/reverse-routing/{id}', function ($id) {
     $url = route('user.profile', ['id' => 1]);
 print_r($url);
@@ -285,7 +285,7 @@ Route::get('array-to-table',[PrintArrayToTableController::class,'index']);
 Route::Resource('multi-record',MultiRecordController::class);
 Route::post('multi_record/destroy_multiple', [MultiRecordController::class,'destroy_multiple'])->name('multi_record.destroy_multiple');
 
-// Chart Integration in laravel 
+// Chart Integration in laravel
 Route::get('pie-chart',[ChartJsController::class,'pieChart']);
 Route::get('bar-chart',[ChartJsController::class,'barChart']);
 Route::get('line-chart',[ChartJsController::class,'lineChart']);
@@ -301,3 +301,7 @@ Route::post('/my-ajax-request', [AjaxController::class,'handleAjaxRequest'])->na
 
 // rest Api
 Route::resource('post2',Post2Controller::class);
+
+
+// Ajax crud | Yajra datatable Crud | datable crud
+Route::resource('products-ajax-crud', Product5AjaxController::class);
