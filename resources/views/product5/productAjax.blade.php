@@ -22,6 +22,7 @@
             <tr>
                 <th>No</th>
                 <th>Name</th>
+                <th>Email</th>
                 <th>Details</th>
                 <th width="280px">Action</th>
             </tr>
@@ -47,6 +48,12 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-12">
+                            <textarea id="email" name="email" required="" placeholder="Enter email" class="form-control"></textarea>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Details</label>
                         <div class="col-sm-12">
@@ -92,6 +99,7 @@
         columns: [
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
             {data: 'name', name: 'name'},
+            {data: 'email', name: 'email'},
             {data: 'detail', name: 'detail'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
@@ -123,6 +131,7 @@
           $('#ajaxModel').modal('show');
           $('#product_id').val(data.id);
           $('#name').val(data.name);
+          $('#email').val(data.email);
           $('#detail').val(data.detail);
       })
     });

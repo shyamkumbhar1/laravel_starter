@@ -15,6 +15,6 @@ class Product5 extends Model
      * @return response()
      */
     protected $fillable = [
-        'name', 'detail'
+        'name', 'detail','email'
     ];
 }

@@ -15,6 +15,7 @@ class Product5AjaxController extends Controller
      */
     public function index(Request $request)
     {
+        // dd($request);
 
         if ($request->ajax()) {
 
@@ -50,7 +51,8 @@ class Product5AjaxController extends Controller
                 ],
                 [
                     'name' => $request->name,
-                    'detail' => $request->detail
+                    'detail' => $request->detail,
+                    'email' => $request->email
                 ]);
 
         return response()->json(['success'=>'Product5 saved successfully.']);
