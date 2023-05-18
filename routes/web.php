@@ -2,7 +2,7 @@
 
 use Ixudra\Curl\Facades\Curl;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{AuthController,ChartJsController,Post2Controller,FooController};
+use App\Http\Controllers\{AuthController,ChartJsController,Post2Controller,FooController,AjaxController1};
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BasicController;
 use App\Http\Controllers\PatternController;
@@ -20,13 +20,15 @@ use App\Http\Controllers\ImageUploadAwsController;
 use App\Http\Controllers\{StoreProcedureController,Product5AjaxController};
 // use Http;
 use App\Http\Controllers\PrintArrayToTableController;
-use App\Http\Controllers\ObserverProductController;
+use App\Http\Controllers\{ObserverProductController,MemberController};
 use App\Http\Controllers\Session_CookiesController;
 use App\Http\Controllers\MultipleDatabaseController;
 use App\Http\Controllers\DropdownController;
 use App\Http\Controllers\{Post1Controller,MultiRecordController};
 use App\Http\Controllers\{CacheController,ProductController,NormalHttpClient,GuzzleHttpClient,MutatorController,CoreConcept,CurlController,RouteController,SessionController,CoreConceptController,imageUploadController,RazorpayPaymentController};
 use App\Models\Post;
+Use App\Http\Controllers\StudentController;
+
 
 Route::get('/', function () {
     $collection = collect(['apple', 'banana', 'orange']);
@@ -305,3 +307,18 @@ Route::resource('post2',Post2Controller::class);
 
 // Ajax crud | Yajra datatable Crud | datable crud
 Route::resource('products-ajax-crud', Product5AjaxController::class);
+
+
+
+
+// Member Crud
+
+Route::resource('member',MemberController::class);
+
+
+
+// Ajax Crud
+Route::get('/students',[StudentController::class,'index']);
+Route::post('/add-student', [StudentController::class,'addStudent'])->name('student.add');
+
+

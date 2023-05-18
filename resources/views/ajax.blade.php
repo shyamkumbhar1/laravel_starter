@@ -15,7 +15,7 @@
     <form id="my-ajax-form">
         @csrf
     <input type="text" name="my_name" />
-    <button type="submit">Submit</button>
+    <button type="submit" >Submit</button>
 </form>
 
 
