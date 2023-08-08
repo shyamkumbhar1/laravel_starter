@@ -27,6 +27,7 @@ use App\Http\Controllers\User\UserDashboardController;
 
 
 Route::get('/', function () {
+    return  "test";
     return view('welcome');
 })->name('welcome');
 
