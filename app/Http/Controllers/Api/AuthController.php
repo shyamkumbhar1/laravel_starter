@@ -4,11 +4,11 @@ namespace App\Http\Controllers\API;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Tymon\JWTAuth\Facades\JWT;
+use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
+
 
 class AuthController extends Controller
 {
@@ -24,11 +24,12 @@ class AuthController extends Controller
             'password' => 'required|string',
         ]);
         $credentials = $request->only('email', 'password');
-        $token = Auth::attempt($credentials);
+        // $token = Auth::attempt($credentials);
         $user = Auth::user();
+        dd($user,$credentials);
 
         // Generate a JWT token for the user
-        // $token = JWTAuth::fromUser($user);
+        $token = JWTAuth::fromUser($user);
 
         if (!$token) {
             return response()->json([
